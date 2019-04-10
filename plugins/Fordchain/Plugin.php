@@ -35,7 +35,7 @@ class Plugin extends Base
         //Event
         $this->actionManager->register(new InitFordchain($this->container));
         $this->actionManager->register(new NextFordchainStep($this->container));
-        $this->actionManager->getAction('\Kanboard\Plugin\Fordchain\Action\NextFordchainStep')->addEvent(TaskModel::EVENT_NEXTCHAINSTEP, 'Task ready for next step in chain');
+        $this->actionManager->getAction('\Kanboard\Plugin\Fordchain\Action\NextFordchainStep')->addEvent('task.chainstepfinished', 'Task ready for next step in chain');
 
         //Routes
         $this->route->addRoute('fordchain/eventTaskNextStep/:task_id', 'FordchainController', 'nextChainStep', "Fordchain");
