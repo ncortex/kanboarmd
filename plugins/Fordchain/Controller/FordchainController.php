@@ -32,7 +32,7 @@ class FordchainController extends BaseController
             ->withValues(['user_finishing' => $user['id']])
             ->buildEvent();
 
-        $event = $this->dispatcher->dispatch(TaskModel::EVENT_NEXTCHAINSTEP, $event);
+        $event = $this->dispatcher->dispatch('task.chainstepfinished', $event);
         $this->response->html("Ok",203);
     }
 
