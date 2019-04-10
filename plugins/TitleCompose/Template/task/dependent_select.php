@@ -1,0 +1,1 @@
+<div style="display: none" id="div_clients"><? $this->helper->titleComposeHelper->renderClientFields($values, $errors) ?></div>
