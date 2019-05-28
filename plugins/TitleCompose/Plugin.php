@@ -20,7 +20,7 @@ class Plugin extends Base
 
         //Task
         $this->template->hook->attach('template:task:form:first-column', 'TitleCompose:task/new_fields');
-        $this->template->hook->attach('template:layout:bottom', 'TitleCompose:task/dependent_select');
+        //$this->template->hook->attach('template:layout:bottom', 'TitleCompose:task/dependent_select');
 
         //Helper
         $this->helper->register('titleComposeHelper', '\Kanboard\Plugin\TitleCompose\Helper\TitleComposeHelper');
