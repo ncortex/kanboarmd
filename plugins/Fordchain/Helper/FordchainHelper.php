@@ -10,14 +10,18 @@ use Kanboard\Core\Base;
  */
 class FordchainHelper extends Base
 {
-    public function renderFordAssigneeField(array $users, array $values, array $errors = array(), array $attributes = array(), $name='owner_id')
+    public function renderFordAssigneeField(array $users, array $values, array $errors = array(), array $attributes = array(), $name='owner_id', $label="Assignee")
     {
-        //$attributes = array_merge(array('tabindex="3"'), $attributes);
+            if (isset($values['project_id']) && ! $this->helper->projectRole->canChangeAssignee($values)) {
+                return '';
+            }
 
-        //$html = $this->helper->form->label(t('Assignee'), $name);
-        //$html .= $this->helper->form->select($name, $users, $values, $errors, $attributes);
+            $attributes = array_merge(array('tabindex="3"'), $attributes);
 
-        return '<p>html'.$name.'</p>';
+            $html = $this->helper->form->label(t($label), $name);
+            $html .= $this->helper->form->select($name, $users, $values, $errors, $attributes);
+
+            return $html;
     }
 
     public function aaa(){

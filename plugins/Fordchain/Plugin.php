@@ -15,7 +15,7 @@ class Plugin extends Base
     public function initialize()
     {
         //Helper
-        //$this->helper->register('fordchainHelper', '\Kanboard\Plugin\Fordchain\Helper\FordchainHelper');
+        $this->helper->register('fordchainHelper', '\Kanboard\Plugin\Fordchain\Helper\FordchainHelper');
 
         $this->container['FordchainController'] = $this->container->factory(function ($c) {
             return new FordchainController($c);
