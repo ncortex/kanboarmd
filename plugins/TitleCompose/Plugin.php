@@ -32,7 +32,7 @@ class Plugin extends Base
 
 
 
-        $this->setContentSecurityPolicy(array('script-src' => "'unsafe-inline' https://kanboard-plain.herokuapp.com/"));
+        $this->setContentSecurityPolicy(array('script-src' => "'unsafe-inline' https://kanboard-4.herokuapp.com/"));
 
         //javascript
         $this->hook->on('template:layout:js', array('template' => 'plugins/TitleCompose/Assets/js/dependent-select.js'));
