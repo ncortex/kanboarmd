@@ -15,7 +15,6 @@
             'users_list' => isset($users_list) ? $users_list : array(),
             'categories_list' => isset($categories_list) ? $categories_list : array(),
         )) ?>
+        <?= $this->hook->render('template:project:header:after', array('project' => $project)) ?>
     </div>
-
-    <?= $this->hook->render('template:project:header:after', array('project' => $project)) ?>
 </div>

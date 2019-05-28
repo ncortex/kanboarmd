@@ -2,6 +2,10 @@
     font-size: 2.0em;
     color: #33cc45;
     float: right;
+    margin-top: -3px;
+}
+.filter-box-component{
+    display: inline-block;
 }
 #tasklist li {
     border-radius: 10px;

@@ -17,9 +17,6 @@
         <div class="board-column-expanded">
 
             <span class="board-column-title">
-                <?php if ($not_editable): ?>
-                    <?= $this->text->e($column['title']) ?>
-                <?php else: ?>
                     <span class="dropdown">
                         <a href="#" class="dropdown-menu"><?= $this->text->e($column['title']) ?> <i class="fa fa-caret-down"></i></a>
                         <ul>
@@ -52,7 +49,6 @@
                             <?= $this->hook->render('template:board:column:dropdown', array('swimlane' => $swimlane, 'column' => $column)) ?>
                         </ul>
                     </span>
-                <?php endif ?>
             </span>
 
             <span class="pull-right">
