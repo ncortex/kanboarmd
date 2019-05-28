@@ -1,8 +1,11 @@
 .board-add-icon{
     font-size: 2.0em;
-    color: #33cc45;
     float: right;
     margin-top: -3px;
+}
+
+.board-add-icon i{
+    color: #33cc45;
 }
 
 .js-text-editor-rendered{
