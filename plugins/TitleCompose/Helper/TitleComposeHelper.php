@@ -25,7 +25,7 @@ class TitleComposeHelper extends Base
     public function renderExtraFields(array $values, array $errors)
     {
         $html = $this->helper->form->label('Project number', 'project_number');
-        $html .= $this->helper->form->text('project_number',$values, $errors, ['style="display:inline_block;"'], 'form-input-small');
+        $html .= $this->helper->form->text('project_number',$values, $errors, [], 'form-input-small');
 
         $html .= $this->helper->form->label('Package number', 'package_number');
         $html .= $this->helper->form->text('package_number', $values, $errors, [], 'form-input-small');
