@@ -14,6 +14,7 @@ if ($this->projectRole->canCreateTaskInColumn(1, 5)) {
     );
     $html .= '</div>';
 
-    return $html;
+    echo $html;
 }
+
 ?>
