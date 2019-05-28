@@ -1,4 +1,8 @@
-
+.board-add-icon{
+    font-size: 2.0em;
+    color: #33cc45;
+    float: right;
+}
 #tasklist li {
     border-radius: 10px;
     border: 1px solid #DEDEDE;
