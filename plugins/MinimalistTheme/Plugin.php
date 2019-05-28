@@ -13,9 +13,12 @@ class Plugin extends Base
         $this->template->setTemplateOverride('board/task_public','MinimalistTheme:board/Newtask_public');
         $this->template->setTemplateOverride('board/task_private','MinimalistTheme:board/Newtask_private');
         $this->template->setTemplateOverride('board/task_footer','MinimalistTheme:board/task_footer');
+        $this->template->setTemplateOverride('board/table_column','MinimalistTheme:board/table_column');
         $this->template->setTemplateOverride('task/details','MinimalistTheme:task/details');
         $this->template->setTemplateOverride('task/dropdown','MinimalistTheme:task/dropdown');
         $this->template->setTemplateOverride('task/sidebar','MinimalistTheme:task/sidebar');
+
+        $this->template->hook->attach('template:project:header:after', 'MinimalistTheme:proyect_header/new_task');
     }
 
     public function onStartup()
