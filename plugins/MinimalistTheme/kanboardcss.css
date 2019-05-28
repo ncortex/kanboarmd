@@ -4,6 +4,10 @@
     margin-top: -3px;
 }
 
+.extra_field{
+    display: inline-block;
+}
+
 .board-add-icon i{
     color: #33cc45;
 }
