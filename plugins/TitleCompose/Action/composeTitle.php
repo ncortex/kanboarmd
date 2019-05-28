@@ -76,7 +76,7 @@ class composeTitle extends Base
 
         $values = array(
             'id' => $data['task']['id'],
-            'title' => $title."aaa",
+            'title' => $title,
         );
 
         return $this->taskModificationModel->update($values, false);
