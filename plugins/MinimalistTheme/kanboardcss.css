@@ -4,6 +4,10 @@
     float: right;
     margin-top: -3px;
 }
+
+.js-text-editor-rendered{
+    display: none;      /*esto elimina el editor de texto de la descripcion de la tarea */
+}
 .filter-box-component{
     display: inline-block;
 }

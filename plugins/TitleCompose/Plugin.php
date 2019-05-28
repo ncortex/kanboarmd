@@ -19,7 +19,7 @@ class Plugin extends Base
         $this->actionManager->register(new composeTitle($this->container));
 
         //Task
-        $this->template->hook->attach('template:task:form:third-column', 'TitleCompose:task/new_fields');
+        $this->template->hook->attach('template:task:form:first-column', 'TitleCompose:task/new_fields');
         $this->template->hook->attach('template:layout:bottom', 'TitleCompose:task/dependent_select');
 
         //Helper
