@@ -24,14 +24,20 @@ class TitleComposeHelper extends Base
 
     public function renderExtraFields(array $values, array $errors)
     {
-        $html = $this->helper->form->label('Project number', 'project_number');
+        $html = '<div class="extra-fields"><div class="extra_field">';
+        $html .= $this->helper->form->label('Project number', 'project_number');
         $html .= $this->helper->form->text('project_number',$values, $errors, ['style="display:inline_block;"'], 'form-input-small');
+        $html .= '</div>';
 
+        $html .= '<div class="extra_field">';
         $html .= $this->helper->form->label('Package number', 'package_number');
         $html .= $this->helper->form->text('package_number', $values, $errors, [], 'form-input-small');
+        $html .= '</div>';
 
+        $html .= '<div class="extra_field">';
         $html .= $this->helper->form->label('Extra number', 'extra_number');
         $html .= $this->helper->form->text('extra_number', $values, $errors, [], 'form-input-small');
+        $html .= '</div></div>';
 
         $html .= $this->renderComposeTitleScript();
 
@@ -41,14 +47,20 @@ class TitleComposeHelper extends Base
     public function renderClientFields(array $values, array $errors){
         $html = "<a onclick='initClient();'>Load</a>";
 
+        $html = '<div class="extra-fields"><div class="extra_field">';
         $html .= $this->helper->form->label('Client', 'client_id', [ 0 => "onclick=initClient();"]);
         $html .= $this->helper->form->select('client_id', ["1" => "uno", "2" => "dos" ], $values, $errors, [ 0 => "onchange=clientChange();", 1 => "onload=initClient(this);" ], 'form-input-small');
+        $html .= '</div>';
 
+        $html .= '<div class="extra_field">';
         $html .= $this->helper->form->label('Product', 'product_id');
         $html .= $this->helper->form->select('product_id', ["1" => "2" ], $values, $errors, [], 'form-input-small');
+        $html .= '</div>';
 
+        $html .= '<div class="extra_field">';
         $html .= $this->helper->form->label('Subproduct', 'subproduct_id');
         $html .= $this->helper->form->select('subproduct_id', ["1" => "2" ], $values, $errors, [], 'form-input-small');
+        $html .= '</div></div>';
 
         $html .= "<script type='text/javascript'>console.log('GGG')</script>";
 
