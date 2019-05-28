@@ -15,10 +15,10 @@
         </div>
 
         <div class="task-form-secondary-column">
-            <div style="display: none"> <?= $this->helper->FordchainHelper->renderFordAssigneeField($users_list, $values, $errors, array(), "owner_id") ?> </div>
-            <?= $this->helper->FordchainHelper->renderFordAssigneeField($users_list, $values, $errors, [], "gestor_id", "Project Manager") ?>
-            <?= $this->helper->FordchainHelper->renderFordAssigneeField($users_list, $values, $errors, [], "translator_id", "Traductor") ?>
-            <?= $this->helper->FordchainHelper->renderFordAssigneeField($users_list, $values, $errors, [], "reviewer_id", "Revisor") ?>
+            <div style="display: none"> <?= $this->helper->fordchainHelper->renderFordAssigneeField($users_list, $values, $errors, array(), "owner_id") ?> </div>
+            <?= $this->helper->fordchainHelper->renderFordAssigneeField($users_list, $values, $errors, [], "gestor_id", "Project Manager") ?>
+            <?= $this->helper->fordchainHelper->renderFordAssigneeField($users_list, $values, $errors, [], "translator_id", "Traductor") ?>
+            <?= $this->helper->fordchainHelper->renderFordAssigneeField($users_list, $values, $errors, [], "reviewer_id", "Revisor") ?>
 
             <?= $this->hook->render('template:task:form:second-column', array('values' => $values, 'errors' => $errors, 'users_list' => $users_list)) ?>
         </div>
