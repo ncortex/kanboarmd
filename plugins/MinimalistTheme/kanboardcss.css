@@ -8,6 +8,9 @@
     display: inline-block;
     margin: 0 10px 10px 0;
 }
+span .notification{
+    margin-top: 5px;
+}
 
 .board-add-icon i{
     color: #33cc45;
