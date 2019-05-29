@@ -43,4 +43,7 @@ class TitleComposeController extends BaseController
         $this->response->html(json_encode($res),200);
     }
 
+    public function config(){
+        return "111";
+    }
 }
