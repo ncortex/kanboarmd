@@ -34,9 +34,6 @@
         </div>
 
         <div class="task-form-bottom">
-            <?php if (! isset($duplicate)): ?>
-                <?= $this->form->checkbox('another_task', t('Create another task'), 1, isset($values['another_task']) && $values['another_task'] == 1) ?>
-            <?php endif ?>
 
             <?= $this->modal->submitButtons() ?>
         </div>

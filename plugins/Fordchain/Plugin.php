@@ -27,7 +27,7 @@ class Plugin extends Base
         //Task
         //$this->template->hook->attach('template:task:form:third-column', 'Fordchain:task/renderFordAsigns');
         $this->template->setTemplateOverride('task_creation/show', 'Fordchain:task/taskCreation');
-        $this->template->setTemplateOverride('task_modification/show', 'Fordchain:task/taskEdit');
+        $this->template->setTemplateOverride('task_modification/show', 'Fordchain:task/taskCreation');
         $this->template->setTemplateOverride('task_list/task_icons', 'Fordchain:task/tasklist_icons');
         $this->template->hook->attach('template:task:details:third-column', 'Fordchain:task/detailsThirdColumn');
         $this->template->hook->attach('template:board:private:task:after-title', 'Fordchain:task/linkToNextStep');
