@@ -100,6 +100,7 @@ class NextFordchainStep extends Base
         ],$this->taskMetadataModel->getAll($data['task']['id']));
         $this->taskMetadataModel->save($data['task']['id'], $new_metadata);
 
+        $this->flash->success("Task moved ok");
 
         return $this->taskModificationModel->update($values, true);
     }
