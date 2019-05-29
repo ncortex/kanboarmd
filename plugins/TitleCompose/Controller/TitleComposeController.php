@@ -29,10 +29,12 @@ class TitleComposeController extends BaseController
 
     public function ajaxClientAdd(){
         $this->db->getConnection()->query('INSERT INTO clients (id,title) VALUES(DEFAULT, \''. $this->request->getStringParam('client_name').'\')') ;
-
-
         $this->response->html(json_encode('OK'),200);
+    }
 
+    public function ajaxClientDel(){
+        $this->db->getConnection()->query('DELETE FROM clients WHERE id='. $this->request->getStringParam('client_id')) ;
+        $this->response->html(json_encode('OK'),200);
     }
 
     public function ajaxJsonHandler(){
