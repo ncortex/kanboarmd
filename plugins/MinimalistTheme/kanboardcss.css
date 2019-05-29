@@ -6,6 +6,7 @@
 
 .extra_field{
     display: inline-block;
+    margin: 0 10px 10px 0;
 }
 
 .board-add-icon i{
