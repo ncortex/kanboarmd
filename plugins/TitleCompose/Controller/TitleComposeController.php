@@ -27,6 +27,14 @@ class TitleComposeController extends BaseController
 
     }
 
+    public function ajaxClientAdd(){
+        $this->db->getConnection()->query('INSERT INTO clientes VALUES("'. $this->request->getStringParam('client_name').'")') ;
+
+
+        $this->response->html(json_encode('OK'),200);
+
+    }
+
     public function ajaxJsonHandler(){
         $res = [];
         foreach($this->db->getConnection()->query('SELECT title FROM clients') as $row_c) {
