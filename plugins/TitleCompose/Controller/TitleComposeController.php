@@ -52,6 +52,11 @@ class TitleComposeController extends BaseController
     }
 
     public function config(){
-        return "111";
+        $this->response->html($this->helper->layout->config('TitleCompose:config/clientConfig', [
+            //'values' => $values,
+            //'errors' => $errors,
+            //'types'  => $metadataTypes,
+            'title'  => t('Settings').' &gt; '.t('Configurar clientes'),
+        ]));
     }
 }
