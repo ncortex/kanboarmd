@@ -12,13 +12,13 @@
 </style>
 
 <div class="page-header">
-    <h2><?= t($cliente['title'] ." : Configurar productos") ?></h2>
+    <h2><?= t($cliente['title'] ." : Configurar subproductos") ?></h2>
 </div>
 
-<form id="metadata-type-creation-form" method="post" action="<?= $this->url->href('TitleComposeController', 'config', ['plugin' => 'TitleCompose']) ?> ">
+<form id="metadata-type-creation-form" method="post" action="<?= $this->url->href('TitleComposeController', 'configSubproducts', ['plugin' => 'TitleCompose']) ?> ">
     <?= $this->form->label("Nuevo producto", 'product_name') ?>
     <?= $this->form->text('product_name', $values, $errors, ['required']) ?>
-    <input type="hidden" name="client_id" id="form-client_name" class="" required="" value="<? e($cliente['title']) ?>">
+    <input type="hidden" name="client_id" id="form-client_name" class="" required="" value="<? echo "".$cliente['id'] ?>">
 
     <div class="form-actions">
         <button type="submit" class="btn btn-blue"><?= t('Create') ?></button>
