@@ -123,7 +123,7 @@ header {
     background:-webkit-linear-gradient(top, #7892c2 5%, #476e9e 100%);
     background:-o-linear-gradient(top, #7892c2 5%, #476e9e 100%);
     background:-ms-linear-gradient(top, #7892c2 5%, #476e9e 100%);
-    background:linear-gradient(to right, #c2b100 5%, #9e7138 100%);
+    background:rgba(113,113,113,0.5);
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#7892c2', endColorstr='#476e9e',GradientType=0);
     background-color: #c25934;
     padding: 10px 10px 15px 10px;
