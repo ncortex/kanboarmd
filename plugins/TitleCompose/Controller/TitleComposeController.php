@@ -116,7 +116,7 @@ class TitleComposeController extends BaseController
             ->limit(1)
             ->findOne();
         $producto =  $this->db->table('products')
-            ->eq('product_id',$product_id)
+            ->eq('id',$product_id)
             ->asc('id')
             ->findOne();
         $subproductos =  $this->db->table('sub_products')
