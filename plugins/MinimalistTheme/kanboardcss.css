@@ -118,9 +118,8 @@ tr[class*='board-swimlane-columns']:not(:first-child) {
  * ############################################################ */
 
 header {
-    background:rgba(113,113,113,0.5);
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#7892c2', endColorstr='#476e9e',GradientType=0);
-    background-color: #c25934;
+    background-color: rgba(113,113,113,0.5);
     padding: 10px 10px 15px 10px;
     margin-left: 0px;
     margin-right: 0px;
