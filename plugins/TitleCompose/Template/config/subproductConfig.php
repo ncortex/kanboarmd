@@ -42,7 +42,7 @@
                 </tr>
                 </thead>
                 <?php
-                foreach ($productos as $producto):
+                foreach ($subproductos as $producto):
                     $key = $producto['id']
                     ?>
                     <tr data-metadata-id="<?= $producto['id'] ?>">
