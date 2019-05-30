@@ -74,20 +74,22 @@ class TitleComposeController extends BaseController
     }
 
     public function configProducts(){
+        $client_id = $this->request->getStringParam('client_id');
         if ($this->request->isPost()) {
             $values = $this->request->getValues();
-            $this->db->getConnection()->query('INSERT INTO products (id,client_id,title) VALUES(DEFAULT, '. $values['client_id'].',\''. $values['product_name'].'\')') ;
+            $client_id = $values['client_id'];
+            $this->db->getConnection()->query('INSERT INTO products (id,client_id,title) VALUES(DEFAULT, '. $client_id.',\''. $values['product_name'].'\')') ;
             $this->flash->success('Producto creado');
         }
-        //$cliente = $this->db->getConnection()->query('SELECT * FROM clients WHERE id='.$this->request->getStringParam('client_id')." LIMIT 1");
+
         $cliente = $this->db->table('clients')
-            ->eq('id',$this->request->getStringParam('client_id'))
+            ->eq('id',$client_id)
             ->asc('id')
             ->limit(1)
             ->findOne();
-        //$productos = $this->db->getConnection()->query('SELECT * FROM products WHERE client_id='.$this->request->getStringParam('client_id'));
+
         $productos =  $this->db->table('products')
-            ->eq('client_id',$this->request->getStringParam('client_id'))
+            ->eq('client_id',$client_id)
             ->asc('id')
             ->findAll();
         $this->response->html($this->helper->layout->config('TitleCompose:config/productConfig', [
