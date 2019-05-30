@@ -38,7 +38,11 @@ class TitleComposeController extends BaseController
     }
 
     public function ajaxClientes(){
-        $res = $this->db->getConnection()->query('SELECT * FROM clients')->execute() ;
+        $clients = $this->db->getConnection()->query('SELECT * FROM clients');
+        $res = [];
+        foreach ($clients as $client){
+            $res[] = $client;
+        }
         $this->response->html(json_encode($res),200);
     }
 
