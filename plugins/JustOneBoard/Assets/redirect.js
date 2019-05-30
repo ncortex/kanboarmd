@@ -1,2 +1,4 @@
 console.log(window.location);
-window.location.replace('board/1');
+if( window.location == "https://kanboard-4.herokuapp.com/") {
+    window.location.replace('board/1');
+}
