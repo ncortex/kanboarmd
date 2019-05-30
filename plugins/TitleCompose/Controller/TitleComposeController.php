@@ -68,12 +68,12 @@ class TitleComposeController extends BaseController
                 foreach($subproducts as $subproduct) {
                     $subproducts[] = $subproduct;
                 }
-                $product['subproducts']=
+                $product['subproducts']=$subproducts;
             }
-            $res[]=
+            $cliente['products']=$product;
         }
 
-        $this->response->html(json_encode($res),200);
+        $this->response->html(json_encode($clientes),200);
     }
 
     public function config(){
