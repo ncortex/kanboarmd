@@ -39,13 +39,13 @@ class TitleComposeController extends BaseController
 
     public function ajaxJsonHandler(){
         $res = [];
-        foreach($this->db->getConnection()->query('SELECT title FROM clients') as $row_c) {
-            foreach($this->db->getConnection()->query('SELECT title FROM products WHERE client_id='. $row_c['id']) as $row_p) {
+        foreach($this->db->getConnection()->query('SELECT * FROM clients') as $row_c) {
+            foreach($this->db->getConnection()->query('SELECT * FROM products WHERE client_id='. $row_c['id']) as $row_p) {
                 $subproducts = [];
-                foreach($this->db->getConnection()->query('SELECT title FROM sub_products WHERE product_id='. $row_p['id']) as $row_s) {
-                    $subproducts[] = $row_s[0];
+                foreach($this->db->getConnection()->query('SELECT * FROM sub_products WHERE product_id='. $row_p['id']) as $row_s) {
+                    $subproducts[] = $row_s;
                 }
-                $res[$row_c[0]][$row_p[0]] = $subproducts;
+                $res[$row_c['id']][$row_p['id']] = $subproducts;
             }
 
         }
