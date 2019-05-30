@@ -45,11 +45,16 @@ class TitleComposeHelper extends Base
     }
 
     public function renderClientFields(array $values, array $errors){
+        $clientes = $this->db->getConnection()->query('SELECT * FROM clients');
+        $arrayClientes = [];
+        foreach ($clientes as $cliente){
+            $arrayClientes[$cliente['id']] = $cliente['titulo'];
+        }
         $html = "<a onclick='initClient();'>Load</a>";
 
         $html = '<div class="extra-fields"><div class="extra_field">';
         $html .= $this->helper->form->label('Client', 'client_id', [ 0 => "onclick=initClient();"]);
-        $html .= $this->helper->form->select('client_id', ["1" => "uno", "2" => "dos" ], $values, $errors, [ 0 => "onchange=clientChange();", 1 => "onload=initClient(this);" ], 'form-input-small');
+        $html .= $this->helper->form->select('client_id', $arrayClientes, $values, $errors, [ 0 => "onchange=clientChange();", 1 => "onload=initClient(this);" ], 'form-input-small');
         $html .= '</div>';
 
         $html .= '<div class="extra_field">';
