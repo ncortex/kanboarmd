@@ -29,7 +29,7 @@
 </form>
 <hr>
 
-<?php if (!empty($productos)): ?>
+<?php if (!empty($subproductos)): ?>
     <div class="row">
         <div class="column">
             <table
@@ -60,7 +60,7 @@
     </div>
 <?php else: ?>
     <div class="listing">
-        <?= t('No clients have been defined yet.') ?>
+        <?= t('No subproducts for '.$producto['title'].' have been defined yet.') ?>
     </div>
 <?php endif ?>
 

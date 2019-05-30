@@ -59,7 +59,7 @@
     </div>
 <?php else: ?>
     <div class="listing">
-        <?= t('No clients have been defined yet.') ?>
+        <?= t('No products for '.$cliente['title'].' have been defined yet.') ?>
     </div>
 <?php endif ?>
 
