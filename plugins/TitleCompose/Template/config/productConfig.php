@@ -50,7 +50,7 @@
                             <?= $producto['title'] ?>
                         </td>
                         <td>
-                            <?= $this->url->link(t('Editar subproductos'), 'TitleComposeController', 'configSubproducts', ['plugin' => 'TitleCompose', 'product_id' => $producto['id']]) ?>                        </td>
+                            <?= $this->url->link(t('Editar subproductos'), 'TitleComposeController', 'configSubproducts', ['plugin' => 'TitleCompose', 'product_id' => $producto['id'], 'client_id' => $cliente['id']]) ?>                        </td>
                     </tr>
                 <?php endforeach ?>
                 </tbody>

@@ -81,7 +81,6 @@ class TitleComposeController extends BaseController
             $this->db->getConnection()->query('INSERT INTO products (id,client_id,title) VALUES(DEFAULT, '. $client_id.',\''. $values['product_name'].'\')') ;
             $this->flash->success('Producto creado');
         }
-
         $cliente = $this->db->table('clients')
             ->eq('id',$client_id)
             ->asc('id')
@@ -102,20 +101,28 @@ class TitleComposeController extends BaseController
     }
 
     public function configSubproducts(){
+        $client_id = $this->request->getStringParam('client_id');
+        $product_id = $this->request->getStringParam('product_id');
+
         if ($this->request->isPost()) {
             $values = $this->request->getValues();
-            $this->db->getConnection()->query('INSERT INTO sub_products (id,product_id,title) VALUES(DEFAULT, '. $values['product_id'].',\''. $values['subproduct_name'].'\')') ;
+            $product_id=$values['product_id'];
+            $this->db->getConnection()->query('INSERT INTO sub_products (id,product_id,title) VALUES(DEFAULT, '. $product_id.',\''. $values['subproduct_name'].'\')') ;
             $this->flash->success('Subproducto creado');
         }
         $cliente = $this->db->table('clients')
-            ->eq('id',$this->request->getStringParam('client_id'))
+            ->eq('id',$client_id)
             ->asc('id')
             ->limit(1)
             ->findOne();
         $producto =  $this->db->table('products')
-            ->eq('product_id',$this->request->getStringParam('product_id'))
+            ->eq('product_id',$product_id)
             ->asc('id')
             ->findOne();
+        $subproductos =  $this->db->table('sub_products')
+            ->eq('product_id',$product_id)
+            ->asc('id')
+            ->findAll();
         $this->response->html($this->helper->layout->config('TitleCompose:config/subproductConfig', [
             //'values' => $values,
             //'errors' => $errors,
