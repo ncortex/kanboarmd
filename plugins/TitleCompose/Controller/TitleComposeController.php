@@ -98,4 +98,29 @@ class TitleComposeController extends BaseController
             'title'  => t('Settings').' &gt; '.t('Configurar productos'),
         ]));
     }
+
+    public function configSubproducts(){
+        if ($this->request->isPost()) {
+            $values = $this->request->getValues();
+            $this->db->getConnection()->query('INSERT INTO sub_products (id,product_id,title) VALUES(DEFAULT, '. $values['product_id'].',\''. $values['subproduct_name'].'\')') ;
+            $this->flash->success('Subproducto creado');
+        }
+        $cliente = $this->db->table('clients')
+            ->eq('id',$this->request->getStringParam('client_id'))
+            ->asc('id')
+            ->limit(1)
+            ->findOne();
+        //$productos = $this->db->getConnection()->query('SELECT * FROM products WHERE client_id='.$this->request->getStringParam('client_id'));
+        $productos =  $this->db->table('products')
+            ->eq('client_id',$this->request->getStringParam('client_id'))
+            ->asc('id')
+            ->findAll();
+        $this->response->html($this->helper->layout->config('TitleCompose:config/productConfig', [
+            //'values' => $values,
+            //'errors' => $errors,
+            'productos'  => $productos,
+            'cliente' => $cliente,
+            'title'  => t('Settings').' &gt; '.t('Configurar productos'),
+        ]));
+    }
 }
