@@ -68,19 +68,20 @@ class TitleComposeController extends BaseController
         $res = [];
         foreach($clientes as $cliente) {
             $products = $this->db->getConnection()->query('SELECT * FROM products WHERE client_id='. $cliente['id']);
+            $cliente['products'] = [];
             foreach($products as $product) {
                 $subproducts = $this->db->getConnection()->query('SELECT * FROM sub_products WHERE product_id='. $product['id']);
                 $product['subproducts']=[];
                 foreach($subproducts as $subproduct) {
                     $product['subproducts'][] = $subproduct;
                 }
-
+                $cliente['products'][]=$product;
             }
-            $cliente['products']=$product;
+
             $res[] = $cliente;
         }
 
-        $this->response->html(json_encode($res)."ss",200);
+        $this->response->html(json_encode($res),200);
     }
 
     public function config(){
