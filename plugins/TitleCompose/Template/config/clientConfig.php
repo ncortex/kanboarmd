@@ -1,8 +1,5 @@
 <?php
-if(isset($_GET['client_name'])){
-    $this->db->getConnection()->query('INSERT INTO clients (id,title) VALUES(DEFAULT, \''. $this->request->getStringParam('client_name').'\')') ;
-    $this->flash->sucess('Cliente creado');
-}
+
 ?>
 <style>
 .column {
@@ -21,13 +18,13 @@ if(isset($_GET['client_name'])){
     <h2><?= t('Configurar clientes') ?></h2>
 </div>
 
-<form id="metadata-type-creation-form" method="post" action=".">
+<form id="metadata-type-creation-form" method="get" action=".">
     <?= $this->form->label("Nuevo cliente", 'client_name') ?>
     <?= $this->form->text('client_name', $values, $errors, ['required']) ?>
 
 
     <div class="form-actions">
-        <button type="submit" class="btn btn-blue"><?= t('Save') ?></button>
+        <button type="submit" class="btn btn-blue"><?= t('Create') ?></button>
     </div>
 
     <?= $this->form->csrf() ?>
