@@ -12,7 +12,7 @@
 </style>
 
 <div class="page-header">
-    <h2><?= t($cliente['title'] ." : Configurar subproductos") ?></h2>
+    <h2><?= t($cliente['title'] ." : ". $producto['title'] ." : Configurar subproductos") ?></h2>
 </div>
 
 <form id="metadata-type-creation-form" method="post" action="<?= $this->url->href('TitleComposeController', 'configSubproducts', ['plugin' => 'TitleCompose']) ?> ">
