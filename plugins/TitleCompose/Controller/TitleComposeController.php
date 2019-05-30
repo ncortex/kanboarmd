@@ -106,6 +106,7 @@ class TitleComposeController extends BaseController
 
         if ($this->request->isPost()) {
             $values = $this->request->getValues();
+            $client_id=$values['client_id'];
             $product_id=$values['product_id'];
             $this->db->getConnection()->query('INSERT INTO sub_products (id,product_id,title) VALUES(DEFAULT, '. $product_id.',\''. $values['subproduct_name'].'\')') ;
             $this->flash->success('Subproducto creado');
