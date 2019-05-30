@@ -48,7 +48,7 @@ class TitleComposeHelper extends Base
         $clientes = $this->db->getConnection()->query('SELECT * FROM clients');
         $arrayClientes = [];
         foreach ($clientes as $cliente){
-            $arrayClientes[$cliente['id']] = $cliente['titulo'];
+            $arrayClientes[$cliente['id']] = $cliente['title'];
         }
         $html = "<a onclick='initClient();'>Load</a>";
 
