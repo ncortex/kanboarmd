@@ -110,15 +110,15 @@ class TitleComposeController extends BaseController
             ->asc('id')
             ->limit(1)
             ->findOne();
-        //$productos = $this->db->getConnection()->query('SELECT * FROM products WHERE client_id='.$this->request->getStringParam('client_id'));
-        $productos =  $this->db->table('products')
-            ->eq('client_id',$this->request->getStringParam('client_id'))
+        $producto =  $this->db->table('products')
+            ->eq('product_id',$this->request->getStringParam('product_id'))
             ->asc('id')
-            ->findAll();
-        $this->response->html($this->helper->layout->config('TitleCompose:config/productConfig', [
+            ->findOne();
+        $this->response->html($this->helper->layout->config('TitleCompose:config/subproductConfig', [
             //'values' => $values,
             //'errors' => $errors,
-            'productos'  => $productos,
+            'producto'  => $producto,
+            'subproductos'  => $subproductos,
             'cliente' => $cliente,
             'title'  => t('Settings').' &gt; '.t('Configurar productos'),
         ]));
