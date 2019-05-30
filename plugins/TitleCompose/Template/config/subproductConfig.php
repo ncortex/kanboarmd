@@ -18,7 +18,7 @@
 <form id="metadata-type-creation-form" method="post" action="<?= $this->url->href('TitleComposeController', 'config', ['plugin' => 'TitleCompose']) ?> ">
     <?= $this->form->label("Nuevo producto", 'product_name') ?>
     <?= $this->form->text('product_name', $values, $errors, ['required']) ?>
-    <input type="hidden" name="client_id" id="form-client_name" class="" required="" value="<? e($cliente['id']) ?>">
+    <input type="hidden" name="client_id" id="form-client_name" class="" required="" value="<? e($cliente['title']) ?>">
 
     <div class="form-actions">
         <button type="submit" class="btn btn-blue"><?= t('Create') ?></button>
