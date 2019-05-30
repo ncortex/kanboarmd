@@ -37,17 +37,40 @@ class TitleComposeController extends BaseController
         $this->response->html(json_encode('OK'),200);
     }
 
-    public function ajaxJsonHandler(){
-        $res = [];
-        foreach($this->db->getConnection()->query('SELECT * FROM clients') as $row_c) {
-            foreach($this->db->getConnection()->query('SELECT * FROM products WHERE client_id='. $row_c['id']) as $row_p) {
-                $subproducts = [];
-                foreach($this->db->getConnection()->query('SELECT * FROM sub_products WHERE product_id='. $row_p['id']) as $row_s) {
-                    $subproducts[] = $row_s;
-                }
-                $res[$row_c['id']][$row_p['id']] = $subproducts;
-            }
+    public function ajaxClientes(){
+        $res = $this->db->getConnection()->query('SELECT * FROM clients') ;
+        $this->response->html(json_encode($res),200);
+    }
 
+    public function ajaxProductos(){
+        if ($this->request->isPost()) {
+            $values = $this->request->getValues();
+            $res = $this->db->getConnection()->query('SELECT * FROM products WHERE client_id='.$values['client_id']);
+            $this->response->html(json_encode($res), 200);
+        }
+    }
+
+    public function ajaxSubproductos(){
+        if ($this->request->isPost()) {
+            $values = $this->request->getValues();
+            $res = $this->db->getConnection()->query('SELECT * FROM sub_products WHERE product_id='.$values['product_id']);
+            $this->response->html(json_encode($res), 200);
+        }
+    }
+
+
+    public function ajaxJsonHandler(){
+        $clientes = $this->db->getConnection()->query('SELECT * FROM clients');
+        foreach($clientes as $cliente) {
+            $products = $this->db->getConnection()->query('SELECT * FROM products WHERE client_id='. $cliente['id']);
+            foreach($products as $product) {
+                $subproducts = $this->db->getConnection()->query('SELECT * FROM sub_products WHERE product_id='. $product['id']);
+                foreach($subproducts as $subproduct) {
+                    $subproducts[] = $subproduct;
+                }
+                $product['subproducts']=
+            }
+            $res[]=
         }
 
         $this->response->html(json_encode($res),200);
