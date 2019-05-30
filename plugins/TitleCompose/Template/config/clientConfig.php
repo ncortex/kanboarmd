@@ -28,57 +28,41 @@
 </form>
 <hr>
 
-<?php if (!empty($types)): ?>
+<?php if (!empty($clientes)): ?>
     <div class="row">
-        <?php for ($i = 1; $i <=3; $i++): ?>
-            <?php $x = 0 ?>
-            <div class="column">
-                <table
-                    id="<?= $i ?>"
-                    class="metadata-table table-striped table-scrolling"
-                    data-save-position-url="<?= $this->url->href('MetadataTypesController', 'movePosition', array('plugin' => 'metaMagik')) ?>"
-                >
-                    <thead>
-                    <tr>
-                        <th><?= t('Field Name') ?></th>
-                        <th><?= t('Type') ?></th>
-                        <th><?= t('Options') ?></th>
-                        <th><?= t('Action') ?></th>
+        <div class="column">
+            <table
+                class="metadata-table table-striped table-scrolling"
+            >
+                <thead>
+                <tr>
+                    <th><?= t('Client Name') ?></th>
+                    <th><?= t('Action') ?></th>
+                </tr>
+                </thead>
+                <?php
+                foreach ($clientes as $cliente):
+                    $key = $cliente['id']
+                    ?>
+                    <?php if ($cliente['column_number'] == $i): ?>
+                    <tr data-metadata-id="<?= $cliente['id'] ?>">
+                        <td>
+                            <i class="fa fa-arrows-alt draggable-row-handle ui-sortable-handle" title="Change metadata position"></i>&nbsp;
+                            <?= $cliente['title'] ?>
+                        </td>
+                        <td>
+                            <?= $this->modal->small('remove', t('Remove'), 'MetadataTypesController', 'confirmTask', ['plugin' => 'metaMagik', 'key' => $key], false, 'popover') ?>
+                        </td>
                     </tr>
-                    </thead>
-                    <tbody id="<?= $i ?>" class="connected">
-                    <tr class="disabled">
-                        <td style="border: none"></td>
-                        <td style="border: none"></td>
-                        <td style="border: none"></td>
-                        <td style="border: none"></td>
-                    </tr>
-                    <?php
-                    foreach ($types as $type):
-                        $key = $type['id']
-                        ?>
-                        <?php if ($type['column_number'] == $i): ?>
-                        <tr data-metadata-id="<?= $type['id'] ?>">
-                            <td>
-                                <i class="fa fa-arrows-alt draggable-row-handle ui-sortable-handle" title="Change metadata position"></i>&nbsp;
-                                <?= $type['human_name'] ?>
-                            </td>
-                            <td><?= $type['data_type'] ?></td>
-                            <td><?= $type['options'] ?></td>
-                            <td>
-                                <?= $this->modal->small('remove', t('Remove'), 'MetadataTypesController', 'confirmTask', ['plugin' => 'metaMagik', 'key' => $key], false, 'popover') ?>
-                            </td>
-                        </tr>
-                    <?php endif ?>
-                    <?php endforeach ?>
-                    </tbody>
-                </table>
-            </div>
-        <?php endfor ?>
+                <?php endif ?>
+                <?php endforeach ?>
+                </tbody>
+            </table>
+        </div>
     </div>
 <?php else: ?>
     <div class="listing">
-        <?= t('No types have been defined yet.') ?>
+        <?= t('No clients have been defined yet.') ?>
     </div>
 <?php endif ?>
 

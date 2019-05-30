@@ -59,10 +59,11 @@ class TitleComposeController extends BaseController
             $this->db->getConnection()->query('INSERT INTO clients (id,title) VALUES(DEFAULT, \''. $values['client_name'].'\')') ;
             $this->flash->success('Cliente creado');
         }
+        $clientes =
         $this->response->html($this->helper->layout->config('TitleCompose:config/clientConfig', [
             //'values' => $values,
             //'errors' => $errors,
-            //'types'  => $metadataTypes,
+            'clientes'  => $clientes,
             'title'  => t('Settings').' &gt; '.t('Configurar clientes'),
         ]));
     }
