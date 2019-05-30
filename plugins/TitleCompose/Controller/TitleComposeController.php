@@ -76,8 +76,8 @@ class TitleComposeController extends BaseController
             $this->db->getConnection()->query('INSERT INTO products (id,client_id,title) VALUES(DEFAULT, '. $values['client_id'].',\''. $values['product_name'].'\')') ;
             $this->flash->success('Producto creado');
         }
-        $cliente = $this->db->getConnection()->query('SELECT * FROM clients WHERE id='.$values['client_id']." LIMIT 1");
-        $productos = $this->db->getConnection()->query('SELECT * FROM products WHERE client_id='.$values['client_id']);
+        $cliente = $this->db->getConnection()->query('SELECT * FROM clients WHERE id='.$this->request->getStringParam('client_id')." LIMIT 1");
+        $productos = $this->db->getConnection()->query('SELECT * FROM products WHERE client_id='.$this->request->getStringParam('client_id'));
         $this->response->html($this->helper->layout->config('TitleCompose:config/productConfig', [
             //'values' => $values,
             //'errors' => $errors,
