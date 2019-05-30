@@ -65,6 +65,7 @@ class TitleComposeController extends BaseController
 
     public function ajaxJsonHandler(){
         $clientes = $this->db->getConnection()->query('SELECT * FROM clients');
+        $res = [];
         foreach($clientes as $cliente) {
             $products = $this->db->getConnection()->query('SELECT * FROM products WHERE client_id='. $cliente['id']);
             foreach($products as $product) {
@@ -76,6 +77,7 @@ class TitleComposeController extends BaseController
 
             }
             $cliente['products']=$product;
+            $res[] = $cliente;
         }
 
         $this->response->html(json_encode($clientes)."ss",200);
