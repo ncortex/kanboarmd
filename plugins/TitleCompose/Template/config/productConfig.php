@@ -12,11 +12,11 @@
 </style>
 
 <div class="page-header">
-    <h2><?= t('Configurar clientes') ?></h2>
+    <h2><?= t('Configurar productos de'. $cliente['title']) ?></h2>
 </div>
 
 <form id="metadata-type-creation-form" method="post" action="<?= $this->url->href('TitleComposeController', 'config', ['plugin' => 'TitleCompose']) ?> ">
-    <?= $this->form->label("Nuevo cliente", 'client_name') ?>
+    <?= $this->form->label("Nuevo producto", 'client_name') ?>
     <?= $this->form->text('client_name', $values, $errors, ['required']) ?>
 
 
