@@ -16,6 +16,8 @@ class Plugin extends Base
         $this->template->setTemplateOverride('header/user_dropdown','JustOneBoard:header/user_dropdown');
         $this->template->setTemplateOverride('dashboard/layout','JustOneBoard:dashboard/layout');
 
+        $this->hook->on('template:layout:js', array('template' => 'plugins/JustOneBoard/Assets/redirect.js'));
+
         $this->container['BoardViewController'] = $this->container->factory(function ($c) {
             return new DashboardController($c);
         });

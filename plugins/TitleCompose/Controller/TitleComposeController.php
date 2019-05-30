@@ -83,7 +83,7 @@ class TitleComposeController extends BaseController
             //'errors' => $errors,
             'productos'  => $productos,
             'cliente' => $cliente,
-            'title'  => t('Settings').' &gt; '.t('Configurar clientes'),
+            'title'  => t('Settings').' &gt; '.t('Configurar productos'),
         ]));
     }
 }

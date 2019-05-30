@@ -28,7 +28,7 @@
 </form>
 <hr>
 
-<?php if (!empty($clientes)): ?>
+<?php if (!empty($productos)): ?>
     <div class="row">
         <div class="column">
             <table
@@ -36,24 +36,22 @@
             >
                 <thead>
                 <tr>
-                    <th><?= t('Client Name') ?></th>
+                    <th><?= t('Product Name') ?></th>
                     <th><?= t('Action') ?></th>
                 </tr>
                 </thead>
                 <?php
-                foreach ($clientes as $cliente):
-                    $key = $cliente['id']
+                foreach ($productos as $producto):
+                    $key = $producto['id']
                     ?>
-                    <?php if ($cliente['column_number'] == $i): ?>
-                    <tr data-metadata-id="<?= $cliente['id'] ?>">
+                    <tr data-metadata-id="<?= $producto['id'] ?>">
                         <td>
                             <i class="fa fa-arrows-alt draggable-row-handle ui-sortable-handle" title="Change metadata position"></i>&nbsp;
-                            <?= $cliente['title'] ?>
+                            <?= $producto['title'] ?>
                         </td>
                         <td>
                             <?= $this->url->link(t('Editar productos'), 'TitleComposeController', 'configproducts', ['plugin' => 'TitleCompose']) ?>                        </td>
                     </tr>
-                <?php endif ?>
                 <?php endforeach ?>
                 </tbody>
             </table>
