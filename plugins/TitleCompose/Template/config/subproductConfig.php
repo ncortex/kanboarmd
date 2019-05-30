@@ -51,7 +51,6 @@
                             <?= $producto['title'] ?>
                         </td>
                         <td>
-                            <?= $this->url->link(t('Editar subproductos'), 'TitleComposeController', 'configsubproducts', ['plugin' => 'TitleCompose', 'product_id' => $producto['id']]) ?>                        </td>
                     </tr>
                 <?php endforeach ?>
                 </tbody>

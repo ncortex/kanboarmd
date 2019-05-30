@@ -42,7 +42,7 @@ class TitleComposeController extends BaseController
         foreach($this->db->getConnection()->query('SELECT title FROM clients') as $row_c) {
             foreach($this->db->getConnection()->query('SELECT title FROM products WHERE client_id='. $row_c) as $row_p) {
                 $subproducts = [];
-                foreach($this->db->getConnection()->query('SELECT title FROM subproducts WHERE product_id='. $row_p) as $row_s) {
+                foreach($this->db->getConnection()->query('SELECT title FROM sub_products WHERE product_id='. $row_p) as $row_s) {
                     $subproducts[] = $row_s[0];
                 }
                 $res[$row_c[0]][$row_p[0]] = $subproducts;
