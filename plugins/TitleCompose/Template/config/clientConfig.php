@@ -44,16 +44,14 @@
                 foreach ($clientes as $cliente):
                     $key = $cliente['id']
                     ?>
-                    <?php if ($cliente['column_number'] == $i): ?>
                     <tr data-metadata-id="<?= $cliente['id'] ?>">
                         <td>
                             <i class="fa fa-arrows-alt draggable-row-handle ui-sortable-handle" title="Change metadata position"></i>&nbsp;
                             <?= $cliente['title'] ?>
                         </td>
                         <td>
-                            <?= $this->url->link(t('Editar productos'), 'TitleComposeController', 'configproducts', ['plugin' => 'TitleCompose']) ?>                        </td>
+                            <?= $this->url->link(t('Editar productos'), 'TitleComposeController', 'configproducts', ['plugin' => 'TitleCompose' , 'client_id' => $cliente['id']]) ?>                        </td>
                     </tr>
-                <?php endif ?>
                 <?php endforeach ?>
                 </tbody>
             </table>
