@@ -73,7 +73,7 @@ class TitleComposeController extends BaseController
             $cliente['products']=$product;
         }
 
-        $this->response->html(json_encode($clientes),200);
+        $this->response->html(json_encode($clientes)."ss",200);
     }
 
     public function config(){
