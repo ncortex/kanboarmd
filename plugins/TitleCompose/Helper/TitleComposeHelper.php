@@ -47,11 +47,23 @@ class TitleComposeHelper extends Base
     public function renderClientFields(array $values, array $errors){
         $clientes = $this->db->getConnection()->query('SELECT * FROM clients');
         $arrayClientes = [];
+        $arrayProductos = [];
+        $arraySubProductos = [];
         foreach ($clientes as $cliente){
             $arrayClientes[$cliente['id']] = $cliente['title'];
         }
-        var_dump($values);
-        $html = "<a onclick='initClient();'>Load</a>";
+        if(isset($values['client_id'])){
+            $productos = $this->db->getConnection()->query('SELECT * FROM products WHERE client_id='.$values['client_id']);
+            foreach ($productos as $producto){
+                $arrayProductos[$producto['id']] = $producto['title'];
+            }
+        }
+        if(isset($values['product_id'])){
+            $subproductos = $this->db->getConnection()->query('SELECT * FROM sub_products WHERE product_id='.$values['product_id']);
+            foreach ($subproductos as $producto){
+                $arraySubProductos[$producto['id']] = $producto['title'];
+            }
+        }
 
         $html = '<div class="extra-fields"><div class="extra_field">';
         $html .= $this->helper->form->label('Client', 'client_id', [ 0 => "onclick=initClient();"]);
@@ -60,20 +72,20 @@ class TitleComposeHelper extends Base
 
         $html .= '<div class="extra_field">';
         $html .= $this->helper->form->label('Product', 'product_id');
-        $html .= $this->helper->form->select('product_id', ["1" => "2" ], $values, $errors, [ 0 => "onchange=callAjax('https://kanboard-4.herokuapp.com/?controller=TitleComposeController&action=ajaxSubproductos&plugin=TitleCompose&product_id='+this.value,productChange);"], 'form-input-small');
+        $html .= $this->helper->form->select('product_id', $arrayProductos, $values, $errors, [ 0 => "onchange=callAjax('https://kanboard-4.herokuapp.com/?controller=TitleComposeController&action=ajaxSubproductos&plugin=TitleCompose&product_id='+this.value,productChange);"], 'form-input-small');
         $html .= '</div>';
 
         $html .= '<div class="extra_field">';
         $html .= $this->helper->form->label('Subproduct', 'subproduct_id');
-        $html .= $this->helper->form->select('subproduct_id', ["1" => "2" ], $values, $errors, [], 'form-input-small');
+        $html .= $this->helper->form->select('subproduct_id', $arraySubProductos, $values, $errors, [], 'form-input-small');
         $html .= '</div></div>';
 
-        $html .= "<script type='text/javascript'>console.log('GGG')</script>";
+       /* $html .= "<script type='text/javascript'>console.log('GGG')</script>";
 
         $html .= "<script type='application/javascript'>
                     callAjax('https://kanboard-4.herokuapp.com/?controller=TitleComposeController&action=ajaxProductos&plugin=TitleCompose&client_id=".$values['client_id']."',clientChange);
                  </script>";
-
+*/
         echo $html;
     }
 
