@@ -47,7 +47,11 @@ class TitleComposeController extends BaseController
     }
 
     public function ajaxProductos(){
-        $res = $this->db->getConnection()->query('SELECT * FROM products WHERE client_id='.$this->request->getStringParam('client_id'));
+        $productos = $this->db->getConnection()->query('SELECT * FROM products WHERE client_id='.$this->request->getStringParam('client_id'));
+        $res = [];
+        foreach ($productos as $producto){
+            $res[] = $producto;
+        }
         $this->response->html(json_encode($res), 200);
     }
 
