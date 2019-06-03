@@ -23,8 +23,8 @@ function initClient(){
 function clientChange(json_productos){
     var productSel = document.getElementById("form-product_id"),
         subproductSel = document.getElementById("form-subproduct_id");
-    productSel.length = 0; // remove all options bar first
-    subproductSel.length = 0; // remove all options bar first
+    productSel.length = 1; // remove all options bar first
+    subproductSel.length = 1; // remove all options bar first
     /*if (this.selectedIndex < 1) {
         productSel.options[0].text = "Select product";
         subproductSel.options[0].text = "Select subproduct";
@@ -42,7 +42,7 @@ function clientChange(json_productos){
 
 function productChange(json_subproductos){
     var subproductSel = document.getElementById("form-subproduct_id");
-    subproductSel.length = 0; // remove all options bar first
+    subproductSel.length = 1; // remove all options bar first
     //subproductSel.options[0].text = "Select subproduct";
 
     JSON.parse(json_subproductos).forEach(function(valor, indice, array) {
