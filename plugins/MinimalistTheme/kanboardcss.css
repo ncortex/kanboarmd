@@ -4,6 +4,12 @@
     margin-top: -3px;
 }
 
+.task-form-secondary-column{
+    overflow: hidden;
+}
+
+
+
 .extra_field{
     display: inline-block;
     margin: 0 10px 10px 0;
@@ -558,10 +564,6 @@ textarea, .alert, input {
     border-radius: 4px;
 }
 
-select {
-    border-radius: 4px;
-    border-width: 1px;
-}
 /* END FIELD BORDERS  */
 
 /* REQUIRED FIELD ASTERISK  */

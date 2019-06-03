@@ -39,7 +39,7 @@ class TitleComposeHelper extends Base
         $html .= $this->helper->form->text('extra_number', $values, $errors, [], 'form-input-small');
         $html .= '</div></div>';
 
-        $html .= $this->renderComposeTitleScript();
+        //$html .= $this->renderComposeTitleScript();
 
         echo $html;
     }
