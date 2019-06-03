@@ -21,7 +21,8 @@ function initClient(){
 }
 
 function clientChange(json_productos){
-    console.log(json_productos);
+    console.log(JSON.parse(json_productos));
+    console.log(JSON.parse(json_productos)[0]);
     var productSel = document.getElementById("form-product_id"),
         subproductSel = document.getElementById("form-subproduct_id");
     productSel.length = 1; // remove all options bar first
