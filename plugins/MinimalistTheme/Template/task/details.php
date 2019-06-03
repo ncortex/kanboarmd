@@ -1,9 +1,9 @@
 <section id="task-summary">
     <h2><?= $this->text->e($task['title']) ?></h2>
 
-    <!-- ?= $this->hook->render('template:task:details:top', array('task' => $task)) ? -->
+    <?= $this->hook->render('template:task:details:top', array('task' => $task)) ?>
 
-    <?= $metadata = $this->task->taskMetadataModel->getAll($task['id']); ?>
+    <!-- ?= $metadata = $this->task->taskMetadataModel->getAll($task['id']); ? -->
 
     <div class="task-summary-container color-<?= $task['color_id'] ?>">
         <div class="task-summary-columns">
