@@ -23,8 +23,8 @@ function initClient(){
 function clientChange(json_productos){
     var productSel = document.getElementById("form-product_id"),
         subproductSel = document.getElementById("form-subproduct_id");
-    productSel.length = 1; // remove all options bar first
-    subproductSel.length = 1; // remove all options bar first
+    productSel.length = 0; // remove all options bar first
+    subproductSel.length = 0; // remove all options bar first
     /*if (this.selectedIndex < 1) {
         productSel.options[0].text = "Select product";
         subproductSel.options[0].text = "Select subproduct";
