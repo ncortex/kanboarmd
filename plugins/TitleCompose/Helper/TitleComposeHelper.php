@@ -69,11 +69,11 @@ class TitleComposeHelper extends Base
 
         $html .= "<script type='text/javascript'>console.log('GGG')</script>";
 
-        $html .= "<script type='text/javascript'>
+        $html .= "<script type='application/javascript'>
                     callAjax('https://kanboard-4.herokuapp.com/?controller=TitleComposeController&action=ajaxProductos&plugin=TitleCompose&client_id=".$values['client_id']."',clientChange);
                  </script>";
 
-        echo $html;
+        echo $html;<
     }
 
 }
