@@ -23,14 +23,14 @@ function initClient(){
 function clientChange(json_productos){
     var productSel = document.getElementById("form-product_id"),
         subproductSel = document.getElementById("form-subproduct_id");
-    productSel.length = 1; // remove all options bar first
-    subproductSel.length = 1; // remove all options bar first
-    if (this.selectedIndex < 1) {
+    productSel.length = 0; // remove all options bar first
+    subproductSel.length = 0; // remove all options bar first
+    /*if (this.selectedIndex < 1) {
         productSel.options[0].text = "Select product";
         subproductSel.options[0].text = "Select subproduct";
         return; // done
     }
-    productSel.options[0].text = "Select product";
+    productSel.options[0].text = "Select product";*/
     JSON.parse(json_productos).forEach(function(valor, indice, array) {
        productSel.options[productSel.options.length] = new Option(valor['title'], valor['id']);
     });
@@ -42,8 +42,8 @@ function clientChange(json_productos){
 
 function productChange(json_subproductos){
     var subproductSel = document.getElementById("form-subproduct_id");
-    subproductSel.length = 1; // remove all options bar first
-    subproductSel.options[0].text = "Select subproduct";
+    subproductSel.length = 0; // remove all options bar first
+    //subproductSel.options[0].text = "Select subproduct";
 
     JSON.parse(json_subproductos).forEach(function(valor, indice, array) {
         subproductSel.options[subproductSel.options.length] = new Option(valor['title'], valor['id']);
