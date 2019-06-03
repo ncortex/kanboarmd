@@ -34,10 +34,7 @@ function clientChange(json_productos){
     }
     productSel.options[0].text = "Select client";
     console.log(JSON.parse(json_productos).toArray());
-    forEach()r (let producto in JSON.parse(json_productos)) {
-        console.log(producto.id);
-        productSel.options[productSel.options.length] = new Option(producto['id'], producto['title']);
-    }
+
     if (productSel.options.length===2) {
         productSel.selectedIndex=1;
         productSel.onchange();
