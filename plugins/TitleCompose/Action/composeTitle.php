@@ -74,7 +74,7 @@ class composeTitle extends Base
             $title .= $data['task'][$attribute]." ";
         }
 
-        $subprodname = $this->db->getConnection()->query('SELECT title FROM sub_products WHERE id='.$data['task']['subproduct_id'].' LIMIT 1')->execute();
+        $subprodname = $this->db->getConnection()->query('SELECT * FROM sub_products WHERE id='.$data['task']['subproduct_id'].' LIMIT 1')->execute();
         // Los de rmsoft lo quieren con este formato exacto:
         $title = $subprodname . " " . $data['task']['project_number'] . " (" . $data['task']['package_number'] .")";
 
