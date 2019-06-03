@@ -50,6 +50,7 @@ class TitleComposeHelper extends Base
         foreach ($clientes as $cliente){
             $arrayClientes[$cliente['id']] = $cliente['title'];
         }
+        var_dump($values);
         $html = "<a onclick='initClient();'>Load</a>";
 
         $html = '<div class="extra-fields"><div class="extra_field">';
