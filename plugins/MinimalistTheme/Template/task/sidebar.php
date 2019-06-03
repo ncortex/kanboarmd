@@ -1,7 +1,7 @@
 <div class="sidebar sidebar-icons">
-    <div class="sidebar-title">
+    <!--div class="sidebar-title">
         <h2><?= t('Task #%d', $task['id']) ?></h2>
-    </div>
+    </div-->
     <ul>
         <li <?= $this->app->checkMenuSelection('TaskViewController', 'show') ?>>
             <?= $this->url->icon('newspaper-o', t('Summary'), 'TaskViewController', 'show', array('task_id' => $task['id'], 'project_id' => $task['project_id'])) ?>
