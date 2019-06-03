@@ -73,7 +73,7 @@ class TitleComposeHelper extends Base
                     callAjax('https://kanboard-4.herokuapp.com/?controller=TitleComposeController&action=ajaxProductos&plugin=TitleCompose&client_id=".$values['client_id']."',clientChange);
                  </script>";
 
-        echo $html;<
+        echo $html;
     }
 
 }
