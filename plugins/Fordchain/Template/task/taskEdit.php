@@ -9,8 +9,14 @@
             <?= $this->task->renderTitleField($values, $errors) ?>
             <!--= $this->task->renderDescriptionField($values, $errors) -->
             <?= $this->hook->render('template:task:form:first-column', array('values' => $values, 'errors' => $errors)) ?>
-            <?= $this->task->renderCategoryField($categories_list, $values, $errors) ?>
-            <?= $this->task->renderTagField($project) ?>
+            <div class="extra-fields">
+                <div class="extra_field">
+                    <?= $this->task->renderCategoryField($categories_list, $values, $errors) ?>
+                </div>
+                <div class="extra_field">
+                    <?= $this->task->renderTagField($project) ?>
+                </div>
+            </div>
 
         </div>
 
