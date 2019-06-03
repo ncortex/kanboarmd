@@ -138,7 +138,7 @@ class NewTaskModificationModel extends Base
             $exists = array_key_exists('metamagikkey_' . $check['human_name'], $values);
             if (!$exists) { 
                 $existsdoublecheck = array_key_exists('metamagikkey_' . $check['human_name'] . '[]', $values);
-                if (!$existsdoublecheck) { $values['metamagikkey_' . $check['human_name']] = ''; }
+                //if (!$existsdoublecheck) { $values['metamagikkey_' . $check['human_name']] = ''; }
             }
         }
         
