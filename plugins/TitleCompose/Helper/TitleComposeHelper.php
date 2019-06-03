@@ -59,7 +59,7 @@ class TitleComposeHelper extends Base
 
         $html .= '<div class="extra_field">';
         $html .= $this->helper->form->label('Product', 'product_id');
-        $html .= $this->helper->form->select('product_id', ["1" => "2" ], $values, $errors, [], 'form-input-small');
+        $html .= $this->helper->form->select('product_id', ["1" => "2" ], $values, $errors, [ 0 => "onchange=callAjax('https://kanboard-4.herokuapp.com/?controller=TitleComposeController&action=ajaxSubproductos&plugin=TitleCompose&product_id='+this.value,productChange);"], 'form-input-small');
         $html .= '</div>';
 
         $html .= '<div class="extra_field">';

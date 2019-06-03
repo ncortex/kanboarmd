@@ -56,11 +56,12 @@ class TitleComposeController extends BaseController
     }
 
     public function ajaxSubproductos(){
-        if ($this->request->isPost()) {
-            $values = $this->request->getValues();
-            $res = $this->db->getConnection()->query('SELECT * FROM sub_products WHERE product_id='.$values['product_id']);
-            $this->response->html(json_encode($res), 200);
+        $productos = $this->db->getConnection()->query('SELECT * FROM sub_products WHERE product_id='.$this->request->getStringParam('product_id'));
+        $res = [];
+        foreach ($productos as $producto){
+            $res[] = $producto;
         }
+        $this->response->html(json_encode($res), 200);
     }
 
 
