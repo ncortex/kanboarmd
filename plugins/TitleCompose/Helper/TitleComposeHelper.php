@@ -54,7 +54,7 @@ class TitleComposeHelper extends Base
 
         $html = '<div class="extra-fields"><div class="extra_field">';
         $html .= $this->helper->form->label('Client', 'client_id', [ 0 => "onclick=initClient();"]);
-        $html .= $this->helper->form->select('client_id', $arrayClientes, $values, $errors, [ 0 => "onchange=callAjax('https://kanboard-4.herokuapp.com/?controller=TitleComposeController&action=ajaxJsonHandler&plugin=TitleCompose',clientChange);", 1 => "onload=initClient(this);" ], 'form-input-small');
+        $html .= $this->helper->form->select('client_id', $arrayClientes, $values, $errors, [ 0 => "onchange=callAjax('https://kanboard-4.herokuapp.com/?controller=TitleComposeController&action=ajaxProductos&plugin=TitleCompose&client_id='+this.value,clientChange);", 1 => "onload=initClient(this);" ], 'form-input-small');
         $html .= '</div>';
 
         $html .= '<div class="extra_field">';
