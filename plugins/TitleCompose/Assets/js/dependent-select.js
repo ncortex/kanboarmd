@@ -28,14 +28,13 @@ function clientChange(json_productos){
     productSel.length = 1; // remove all options bar first
     subproductSel.length = 1; // remove all options bar first
     if (this.selectedIndex < 1) {
-        productSel.options[0].text = "Select client";
-        subproductSel.options[0].text = "Select product";
+        productSel.options[0].text = "Select product";
+        subproductSel.options[0].text = "Select subproduct";
         return; // done
     }
-    productSel.options[0].text = "Select client";
+    productSel.options[0].text = "Select product";
     JSON.parse(json_productos).forEach(function(valor, indice, array) {
-        console.log(valor.id);
-       productSel.options[productSel.options.length] = new Option(valor['id'], valor['title']);
+       productSel.options[productSel.options.length] = new Option(valor['title'], valor['id']);
     });
     if (productSel.options.length===2) {
         productSel.selectedIndex=1;
