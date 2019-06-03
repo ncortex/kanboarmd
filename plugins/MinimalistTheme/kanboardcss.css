@@ -8,9 +8,14 @@
     overflow: hidden;
 }
 
-details .accordion-section{
+details.accordion-section{
     display: none;
 }
+
+div.task-board-icons{
+    display: none;
+}
+
 
 .extra_field{
     display: inline-block;
