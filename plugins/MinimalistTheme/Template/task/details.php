@@ -112,5 +112,5 @@
         )) ?>
     <?php endif ?>
 
-    <!-- ?= $this->hook->render('template:task:details:bottom', array('task' => $task)) ? -->
+    <?= $this->hook->render('template:task:details:bottom', array('task' => $task)) ?>
 </section>
