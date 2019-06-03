@@ -8,7 +8,9 @@
     overflow: hidden;
 }
 
-
+details .accordion-section{
+    display: none;
+}
 
 .extra_field{
     display: inline-block;

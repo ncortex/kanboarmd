@@ -79,7 +79,7 @@ class composeTitle extends Base
             $subprodname = $sp['title'];
         }
         // Los de rmsoft lo quieren con este formato exacto:
-        $title = $subprodname . " " . $data['task']['project_number'] . " (" . $data['task']['package_number'] .")";
+        $title = $subprodname . " - " . $data['task']['project_number'] . " (" . $data['task']['package_number'] .")";
 
         $values = array(
             'id' => $data['task']['id'],
