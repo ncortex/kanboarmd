@@ -46,7 +46,7 @@ function productChange(json_subproductos){
     //subproductSel.options[0].text = "Select subproduct";
 
     JSON.parse(json_subproductos).forEach(function(valor, indice, array) {
-        subproductSel.options[subproductSel.options.length] = new Option(valor['title'], valor['id']);
+        subproductSel.options.add(new Option(valor['title'], valor['id']));
     });
     if (subproductSel.options.length===2) {
         subproductSel.selectedIndex=1;
