@@ -33,8 +33,10 @@ function clientChange(json_productos){
         return; // done
     }
     productSel.options[0].text = "Select client";
-    console.log(JSON.parse(json_productos).toArray());
-
+    JSON.parse(json_productos).forEach(function(valor, indice, array) {
+        console.log(valor.id);
+       productSel.options[productSel.options.length] = new Option(valor['id'], valor['title']);
+    });
     if (productSel.options.length===2) {
         productSel.selectedIndex=1;
         productSel.onchange();
