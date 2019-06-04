@@ -21,8 +21,8 @@ class FordchainHelper extends Base
             if($required){
                 $attributes = array_merge(array('required=""'), $attributes);
             }
-            $users[""]=$users[0];
-            unset($users[0]);
+            //$users[""]=$users[0];
+            //unset($users[0]);
 
             $html = $this->helper->form->label(t($label), $name);
             $html .= $this->helper->form->select($name, $users, $values, $errors, $attributes);
