@@ -80,7 +80,7 @@ class composeTitle extends Base
         }
         // Los de rmsoft lo quieren con este formato exacto:
         $title = $subprodname . " - " . $data['task']['project_number'] . " (" . $data['task']['package_number'] .")";
-        $description = "dddd"; //"".$this->taskMetadataModel->getAll($data['task']['id'])['mt'];
+        $description = var_dump($this->taskMetadataModel->getAll($data['task']['id']));
 
         $values = array(
             'id' => $data['task']['id'],
