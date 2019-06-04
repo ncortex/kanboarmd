@@ -16,6 +16,11 @@ div.task-board-icons{
     display: none;
 }
 
+.btn-green {
+    border-color: #5ded30;
+    background: #4dfe4f;
+    color: #fff;
+}
 
 .extra_field{
     display: inline-block;
