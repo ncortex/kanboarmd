@@ -82,6 +82,16 @@ class TaskCreationModel extends Base
             $values['creator_id'] = $this->userSession->getId();
         }
 
+        if ($values['gestor_id'] == "") {
+            $values['gestor_id'] = 0;
+        }
+        if ($values['translator_id'] == "") {
+            $values['translator_id'] = 0;
+        }
+        if ($values['reviewer_id'] == "") {
+            $values['reviewer_id'] = 0;
+        }
+
         $values['swimlane_id'] = empty($values['swimlane_id']) ? $this->swimlaneModel->getFirstActiveSwimlaneId($values['project_id']) : $values['swimlane_id'];
         $values['date_creation'] = time();
         $values['date_modification'] = $values['date_creation'];
