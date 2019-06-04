@@ -82,13 +82,13 @@ class TaskCreationModel extends Base
             $values['creator_id'] = $this->userSession->getId();
         }
 
-        if ($values['gestor_id'] == "") {
+        if (empty($values['gestor_id'])) {
             $values['gestor_id'] = 0;
         }
-        if ($values['translator_id'] == "") {
+        if (empty($values['translator_id'])) {
             $values['translator_id'] = 0;
         }
-        if ($values['reviewer_id'] == "") {
+        if (empty($values['reviewer_id'])) {
             $values['reviewer_id'] = 0;
         }
 
