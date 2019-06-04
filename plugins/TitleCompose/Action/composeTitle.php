@@ -81,7 +81,14 @@ class composeTitle extends Base
         }
         // Los de rmsoft lo quieren con este formato exacto:
         $title = $subprodname . " - " . $data['task']['project_number'] . " (" . $data['task']['package_number'] .")";
-        $description = $this->taskMetadataModel->getAll($data['task']['id'])['MT'];
+
+        $metadata = $this->taskMetadataModel->getAll($data['task']['id']);
+        $description = "";
+        if (!empty($metadata['MT'])) {
+            $description = $this->text->e($metadata['New'] . "-" . $metadata['MT'] . "-" . $metadata['Fuzzy'] . "-" . $metadata['100%']);
+        } elseif (!empty($metadata['Weighed'])) {
+            $description = $this->text->e($metadata['Weighed']);
+        }
 
         $values = array(
             'id' => $data['task']['id'],

@@ -45,19 +45,6 @@
             <div class="task-board-title">
                 <?= $this->url->link($this->text->e($task['title']), 'TaskViewController', 'show', array('task_id' => $task['id'], 'project_id' => $task['project_id'])) ?>
             </div>
-            <? if (! empty($metadata['MT'])): ?>
-                <div class="task-board-icons-row">
-                    <span class="task-words">
-                        <? $this->text->e($metadata['MT']."-".$metadata['Fuzzy']."-".$metadata['new']."-".$metadata['100\%']); ?>
-                    </span>
-                </div>
-            <? elseif (! empty($metadata['Weighed'])) :?>
-                <div class="task-board-icons-row">
-                    <span class="task-words">
-                        <? $this->text->e($metadata['Weighed']); ?>
-                    </span>
-                </div>
-            <? endif ?>
             <?php if (! empty($task['date_due'])): ?>
                 <div class="task-board-icons-row">
                     <span class="task-date
@@ -69,6 +56,13 @@
                     ">
                     <i class="fa fa-calendar"></i>
                         <?= $this->dt->datetime($task['date_due']) ?>
+                    </span>
+                </div>
+            <?php endif ?>
+            <?php if (!empty($task['description'])): ?>
+                <div class="task-board-icons-row">
+                    <span class="task-words">
+                        <? $this->text->e($task['description']) ?>
                     </span>
                 </div>
             <?php endif ?>
