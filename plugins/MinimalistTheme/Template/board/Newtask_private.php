@@ -59,7 +59,8 @@
                     </span>
                 </div>
             <?php endif ?>
-            <?php if (!empty($task['description'])): ?>
+
+            <?php var_dump($task); if (!empty($task['description'])): ?>
                 <div class="task-board-icons-row">
                     <span class="task-words">
                         <? $this->text->e($task['description']) ?>
