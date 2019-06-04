@@ -4,6 +4,7 @@ namespace Kanboard\Plugin\TitleCompose\Action;
 
 use Kanboard\Action\Base;
 use Kanboard\Model\TaskModel;
+use function MongoDB\BSON\toJSON;
 
 class composeTitle extends Base
 {
@@ -80,7 +81,7 @@ class composeTitle extends Base
         }
         // Los de rmsoft lo quieren con este formato exacto:
         $title = $subprodname . " - " . $data['task']['project_number'] . " (" . $data['task']['package_number'] .")";
-        $description = var_dump($this->taskMetadataModel->getAll($data['task']['id']));
+        $description = $this->taskMetadataModel->getAll($data['task']['id'])['MT'];
 
         $values = array(
             'id' => $data['task']['id'],
