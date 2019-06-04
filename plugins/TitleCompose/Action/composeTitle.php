@@ -85,9 +85,9 @@ class composeTitle extends Base
         $metadata = $this->taskMetadataModel->getAll($data['task']['id']);
         $description = "";
         if (!empty($metadata['MT'])) {
-            $description = $this->text->e($metadata['New'] . "-" . $metadata['MT'] . "-" . $metadata['Fuzzy'] . "-" . $metadata['100%']);
+            $description = $metadata['New'] . "-" . $metadata['MT'] . "-" . $metadata['Fuzzy'] . "-" . $metadata['100%'];
         } elseif (!empty($metadata['Weighed'])) {
-            $description = $this->text->e($metadata['Weighed']);
+            $description = $metadata['Weighed'];
         }
 
         $values = array(
