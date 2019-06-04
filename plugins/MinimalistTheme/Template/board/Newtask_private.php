@@ -60,7 +60,7 @@
                 </div>
             <?php endif ?>
 
-            <?php var_dump($task); if (!empty($task['description'])): ?>
+            <?php  if (!empty($task['description'])): ?>
                 <div class="task-board-icons-row">
                     <span class="task-words">
                         <? echo($task['description']) ?>
