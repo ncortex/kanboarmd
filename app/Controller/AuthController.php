@@ -20,7 +20,7 @@ class AuthController extends BaseController
     public function login(array $values = array(), array $errors = array())
     {
         if ($this->userSession->isLogged()) {
-            $this->response->redirect($this->helper->url->to('DashboardController', 'show'));
+            $this->response->redirect($this->helper->url->to('BoardViewController', 'show',[ 'project_id' => 1]));
         } else {
             $this->response->html($this->helper->layout->app('auth/index', array(
                 'captcha' => ! empty($values['username']) && $this->userLockingModel->hasCaptcha($values['username']),
