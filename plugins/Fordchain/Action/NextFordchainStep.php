@@ -84,6 +84,10 @@ class NextFordchainStep extends Base
         if($data['task']['fordchainStep'] == 3){
             $nuevo_owner = $data['task']['gestor_id'] ;
         }
+        if($data['task']['fordchainStep'] == 4){
+            $nuevo_owner = 0 ;
+            $this->taskStatusModel->close($data['task']['id']);
+        }
 
         $values = array(
             'id' => $data['task']['id'],
