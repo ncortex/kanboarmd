@@ -14,6 +14,7 @@ class Plugin extends Base
         $this->template->setTemplateOverride('header','JustOneBoard:header');
         $this->template->setTemplateOverride('header/title','JustOneBoard:header/title');
         $this->template->setTemplateOverride('header/user_dropdown','JustOneBoard:header/user_dropdown');
+        $this->template->setTemplateOverride('proyect_header/dropdown','JustOneBoard:proyect_header/dropdown');
         $this->template->setTemplateOverride('dashboard/layout','JustOneBoard:dashboard/layout');
 
         $this->hook->on('template:layout:js', array('template' => 'plugins/JustOneBoard/Assets/redirect.js'));
