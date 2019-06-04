@@ -5,9 +5,6 @@
             <li>
                 <?= $this->modal->large('edit', t('Edit the task'), 'TaskModificationController', 'edit', array('task_id' => $task['id'], 'project_id' => $task['project_id'])) ?>
             </li>
-            <?php if (array_key_exists('owner_id', $task) && $task['owner_id'] == $this->user->getId()): ?>
-                <?= $this->modal->confirm('next-o', t('Move to next step'), 'FordchainController', 'nextStep', array('task_id' => $task['id'], 'project_id' => $task['project_id'])) ?>
-            <?php endif ?>
         <?php endif ?>
         <li>
             <?= $this->modal->medium('external-link', t('Add external link'), 'TaskExternalLinkController', 'find', array('task_id' => $task['id'], 'project_id' => $task['project_id'])) ?>

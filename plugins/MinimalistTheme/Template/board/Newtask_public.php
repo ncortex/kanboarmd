@@ -24,7 +24,7 @@
         <?= $this->url->link($this->text->e($task['title']), 'TaskViewController', 'readonly', array('task_id' => $task['id'], 'token' => $project['token'])) ?>
     </div>
     <?= $this->hook->render('template:board:public:task:after-title', array('task' => $task)) ?>
-
+num palabras
     <?= $this->render('board/task_footer', array(
         'task' => $task,
         'not_editable' => $not_editable,
