@@ -63,7 +63,7 @@
             <?php var_dump($task); if (!empty($task['description'])): ?>
                 <div class="task-board-icons-row">
                     <span class="task-words">
-                        <? $this->text->e($task['description']) ?>
+                        <? echo($task['description']) ?>
                     </span>
                 </div>
             <?php endif ?>
