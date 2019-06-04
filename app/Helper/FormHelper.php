@@ -51,15 +51,21 @@ class FormHelper extends Base
     public function select($name, array $options, array $values = array(), array $errors = array(), array $attributes = array(), $class = '')
     {
         $html = '<select name="'.$name.'" id="form-'.$name.'" class="'.$class.'" '.implode(' ', $attributes).'>';
-
+        $seleccionado=false;
         foreach ($options as $id => $value) {
             $html .= '<option value="'.$this->helper->text->e($id).'"';
 
             if (isset($values->$name) && $id == $values->$name) {
                 $html .= ' selected="selected"';
+                $seleccionado = true;
             }
             if (isset($values[$name]) && $id == $values[$name]) {
                 $html .= ' selected="selected"';
+                $seleccionado = true;
+            }
+            if (!isset($values[$name]) && $id == "" && !$seleccionado) {
+                $html .= ' selected="selected"';
+                $seleccionado = true;
             }
 
             $html .= '>'.$this->helper->text->e($value).'</option>';
