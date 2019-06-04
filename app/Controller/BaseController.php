@@ -326,7 +326,7 @@ abstract class BaseController extends Base
             session_remove('redirectAfterLogin');
             $this->response->redirect($redirect);
         } else {
-            $this->response->redirect($this->helper->url->to('DashboardController', 'show'));
+            $this->response->redirect($this->helper->url->to('BoardViewController', 'show',[ 'project_id' => 1]));
         }
     }
 }
