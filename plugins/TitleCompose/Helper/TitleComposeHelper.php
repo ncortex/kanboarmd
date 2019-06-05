@@ -52,18 +52,22 @@ class TitleComposeHelper extends Base
         foreach ($clientes as $cliente){
             $arrayClientes[$cliente['id']] = $cliente['title'];
         }
-        if(isset($values['client_id'])){
-            $productos = $this->db->getConnection()->query('SELECT * FROM products WHERE client_id='.$values['client_id']);
-            foreach ($productos as $producto){
-                $arrayProductos[$producto['id']] = $producto['title'];
-            }
+        if(!isset($values['client_id'])) {
+            $values['client_id'] = 1;
         }
-        if(isset($values['product_id'])){
-            $subproductos = $this->db->getConnection()->query('SELECT * FROM sub_products WHERE product_id='.$values['product_id']);
-            foreach ($subproductos as $producto){
-                $arraySubProductos[$producto['id']] = $producto['title'];
-            }
+        $productos = $this->db->getConnection()->query('SELECT * FROM products WHERE client_id='.$values['client_id']);
+        foreach ($productos as $producto){
+            $arrayProductos[$producto['id']] = $producto['title'];
         }
+
+        if(isset($values['product_id'])) {
+            $values['product_id']=1;
+        }
+        $subproductos = $this->db->getConnection()->query('SELECT * FROM sub_products WHERE product_id='.$values['product_id']);
+        foreach ($subproductos as $producto){
+            $arraySubProductos[$producto['id']] = $producto['title'];
+        }
+
 
         $html = '<div class="extra-fields"><div class="extra_field">';
         $html .= $this->helper->form->label('Client', 'client_id', [ 0 => "onclick=initClient();"]);
