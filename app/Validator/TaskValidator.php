@@ -148,6 +148,9 @@ class TaskValidator extends BaseValidator
         $rules = array(
             new Validators\Required('id', t('The id is required')),
             new Validators\Required('title', t('The title is required')),
+            new Validators\NotInArray('gestor_id',[0], t('Gestor is required')),
+            new Validators\NotInArray('translator_id',[0], t('Traductor is required')),
+            new Validators\NotInArray('reviewer_id',[0], t('Revisor is required')),
         );
 
         $v = new Validator($values, array_merge($rules, $this->commonValidationRules()));
