@@ -93,6 +93,7 @@ class NextFordchainStep extends Base
             'id' => $data['task']['id'],
             'column_id' => intval($this->getParam('dest_column_id')),
             'owner_id' => $nuevo_owner,
+            'assignee_username' => $this->helper->user->getFullname($this->userModel->getById($nuevo_owner)),
             'fordchainStep' => $data['task']['fordchainStep']+1,
         );
 

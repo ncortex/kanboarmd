@@ -75,7 +75,6 @@ class InitFordchain extends Base
     {
         $values = array(
             'id' => $data['task']['id'],
-            'column_id' => intval($this->getParam("dest_column_id")),
             'owner_id' => $data['task']['gestor_id'],
             'fordchainStep' => 1,
         );
@@ -83,14 +82,13 @@ class InitFordchain extends Base
         $this->taskMetadataModel->save($data['task']['id'], ["gestor_name" => $this->helper->user->getFullname($this->userModel->getById($data['task']['gestor_id']))]);
         $res = $this->taskModificationModel->update($values, true);
 
-        // Si ya se han establecido el rtraductor y el revisor, pasar al siguiente paso automaticamnete
-        if($data['task']['translator_id'] != 0 && $data['task']['reviewer_id'] != 0){
-            $event = TaskEventBuilder::getInstance($this->container)
-                ->withTaskId($data['task']['id'])
-                ->withValues(['user_finishing' => $data['task']['gestor_id']])
-                ->buildEvent();
-            $this->dispatcher->dispatch('task.chainstepfinished', $event);
-        }
+
+        $event = TaskEventBuilder::getInstance($this->container)
+            ->withTaskId($data['task']['id'])
+            ->withValues(['user_finishing' => $data['task']['gestor_id']])
+            ->buildEvent();
+        $this->dispatcher->dispatch('task.chainstepfinished', $event);
+
         return $res;
     }
 
