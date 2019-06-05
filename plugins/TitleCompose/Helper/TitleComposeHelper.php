@@ -93,4 +93,28 @@ class TitleComposeHelper extends Base
         echo $html;
     }
 
+    public function getClientTitleById($id){
+        $cliente = $this->db->getConnection()->query('SELECT * FROM clients WHERE id='.$id);
+        foreach ($cliente as $c){
+            return $c['title'];
+        }
+        return "Sin Cliente";
+    }
+
+    public function getProductTitleById($id){
+        $cliente = $this->db->getConnection()->query('SELECT * FROM products WHERE id='.$id);
+        foreach ($cliente as $c){
+            return $c['title'];
+        }
+        return "Sin Cliente";
+    }
+
+    public function getSubproductTitleById($id){
+        $cliente = $this->db->getConnection()->query('SELECT * FROM sub_products WHERE id='.$id);
+        foreach ($cliente as $c){
+            return $c['title'];
+        }
+        return "Sin Cliente";
+    }
+
 }
