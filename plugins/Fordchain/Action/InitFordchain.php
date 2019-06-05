@@ -87,7 +87,7 @@ class InitFordchain extends Base
             ->withTaskId($data['task']['id'])
             ->withValues(['user_finishing' => $data['task']['gestor_id']])
             ->buildEvent();
-        $this->dispatcher->dispatch('task.chainstepfinished', $event);
+        //$this->dispatcher->dispatch('task.chainstepfinished', $event);
 
         return $res;
     }
