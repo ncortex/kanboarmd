@@ -34,7 +34,7 @@ function clientChange(json_productos){
     JSON.parse(json_productos).forEach(function(valor, indice, array) {
        productSel.options.add(new Option(valor['title'], valor['id']));
     });
-    if (productSel.options.length===2) {
+    if (productSel.options.length===1) {
         productSel.selectedIndex=1;
         productSel.onchange();
     }
