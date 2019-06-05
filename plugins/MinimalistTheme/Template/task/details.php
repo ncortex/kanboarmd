@@ -89,7 +89,15 @@
                     <?php if ($task['date_due']): ?>
                         <li>
                             <strong><?= t('Due date:') ?></strong>
-                            <span><?= $this->dt->datetime($task['date_due']) ?></span>
+                            <span class="task-date
+                                <?php if (time() > $task['date_due']): ?>
+                                     task-date-overdue
+                                <?php elseif (date('G',$task['date_due']) >= 8 && date('G',$task['date_due']) <=17): ?>
+                                     task-date-today
+                                <?php endif ?>
+                            ">
+                                <?= $this->dt->datetime($task['date_due']) ?>
+                            </span>
                         </li>
                     <?php endif ?>
                     <li>
