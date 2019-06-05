@@ -39,10 +39,8 @@ class FordchainController extends BaseController
     public function nextChainStepConfirm()
     {
         $task = $this->getTask();
-        $user = $this->getUser();
-        $key = $this->request->getStringParam('key');
-        $this->response->html($this->template->render('metaMagik:config/remove', [
-            'key'     => $key,
+        $this->response->html($this->template->render('Fordchain:task/nextStepConfirmation', [
+            'task'     => $task,
         ]));
     }
 

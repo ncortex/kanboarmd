@@ -8,6 +8,6 @@
     </p>
 
     <div class="form-actions">
-        <?= $this->url->link(t('Yes'), 'FordchainController', 'nextChainStep', ['plugin' => 'Fordchain', 'task_id' => $task_id, 'project_id' => $project_id], true, 'btn btn-green') ?>
+        <?= $this->url->link(t('Yes'), 'FordchainController', 'nextChainStep', ['plugin' => 'Fordchain', 'task_id' => $task_id['id'], 'project_id' => $task['project_id']], true, 'btn btn-green') ?>
     </div>
 </div>
