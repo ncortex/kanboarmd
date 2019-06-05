@@ -106,7 +106,7 @@ class NextFordchainStep extends Base
 
         $this->flash->success("Task moved ok");
 
-        return $this->taskModificationModel->update($values, true);
+        return $this->taskModificationModel->update($values, false);
     }
 
     /**
