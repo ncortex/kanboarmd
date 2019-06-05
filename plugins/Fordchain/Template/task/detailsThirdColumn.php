@@ -7,7 +7,7 @@
 <?php if (!empty($task['translator_id'])): ?>
     <li>
         <strong><?= t('Traductor:') ?></strong>
-        <span><?= $this->text->e($task['translator_id']) ?></span>
+        <span><?= $this->text->e($this->helper->user->getFullname($this->userModel->getById($data['task']['translator_id']))) ?></span>
         <?php if ($task['translator_id'] == $task['owner_id']): ?>
             <<
         <?php endif ?>
