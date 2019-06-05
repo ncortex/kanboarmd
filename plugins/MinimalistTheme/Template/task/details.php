@@ -54,13 +54,9 @@
             </div>
             <div class="task-summary-column">
                 <ul class="no-bullet">
-                    <?php if (! empty($task['category_name'])): ?>
-                        <li>
-                            <strong><?= t('Category:') ?></strong>
-                            <span><?= $this->text->e($task['category_name']) ?></span>
-                        </li>
-                    <?php endif ?>
-
+                    <li>
+                        <strong><?= t('Locale:') ?></strong> <span><? $this->task->taskMetadataModel->get($task['id'],"Locale") ; ?></span>
+                    </li>
                     <?= $this->hook->render('template:task:details:second-column', array('task' => $task)) ?>
                 </ul>
             </div>
