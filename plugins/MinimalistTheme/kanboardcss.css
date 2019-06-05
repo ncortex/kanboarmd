@@ -1,4 +1,8 @@
 .task-date-overdue{
+    color: #b94a48!important;
+}
+
+.task-date-today{
     color: #36c!important;
 }
 
