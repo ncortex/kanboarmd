@@ -6,13 +6,13 @@
 
     <div class="task-form-container">
         <div class="task-form-main-column">
-            <!-- = $this->task->renderTitleField($values, $errors) -->
-            <input type="hidden" name="title" id="form-title" class="" autofocus="" value="title" tabindex="1" placeholder="Titulo">
+
             <!--= $this->task->renderDescriptionField($values, $errors) -->
             <?= $this->hook->render('template:task:form:first-column', array('values' => $values, 'errors' => $errors)) ?>
             <?= $this->task->renderCategoryField($categories_list, $values, $errors) ?>
             <?= $this->task->renderTagField($project) ?>
-
+            <!-- = $this->task->renderTitleField($values, $errors) -->
+            <input type="hidden" name="title" id="form-title" class="" autofocus="" value="title" tabindex="1" placeholder="Titulo">
         </div>
 
         <div class="task-form-secondary-column">
