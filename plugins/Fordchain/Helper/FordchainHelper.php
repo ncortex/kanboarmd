@@ -34,4 +34,12 @@ class FordchainHelper extends Base
         return "<P>sss</P>";
     }
 
+    public function getUsernameById($id){
+        $cliente = $this->db->getConnection()->query('SELECT * FROM users WHERE id='.$id);
+        foreach ($cliente as $c){
+            return $c['username'];
+        }
+        return "Sin usuario";
+    }
+
 }
