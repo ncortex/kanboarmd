@@ -60,7 +60,7 @@ class TitleComposeHelper extends Base
             $arrayProductos[$producto['id']] = $producto['title'];
         }
 
-        if(isset($values['product_id'])) {
+        if(!isset($values['product_id'])) {
             $values['product_id']=1;
         }
         $subproductos = $this->db->getConnection()->query('SELECT * FROM sub_products WHERE product_id='.$values['product_id']);
