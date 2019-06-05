@@ -93,7 +93,6 @@ class NextFordchainStep extends Base
             'id' => $data['task']['id'],
             'column_id' => intval($this->getParam('dest_column_id')),
             'owner_id' => $nuevo_owner,
-            $nuevo_owner.'f' => 0,
             'fordchainStep' => $data['task']['fordchainStep']+1,
         );
 
