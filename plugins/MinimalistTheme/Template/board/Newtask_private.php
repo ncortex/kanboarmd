@@ -88,7 +88,7 @@
                 'project' => $project,
             )) ?>
             <?
-            echo $metadata['translator_name'] . ' - ' . $metadata['reviewer_name'];
+            echo "<div>".$metadata['translator_name'] . ' - ' . $metadata['reviewer_name']."</div>";
             ?>
         </div>
     <?php endif ?>
