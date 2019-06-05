@@ -75,6 +75,7 @@ class TaskValidator extends BaseValidator
         $rules = array(
             new Validators\Required('project_id', t('The project is required')),
             new Validators\Required('title', t('The title is required')),
+            new Validators\Required('gestor_id', t('Gestor is required')),
         );
 
         $v = new Validator($values, array_merge($rules, $this->commonValidationRules()));
