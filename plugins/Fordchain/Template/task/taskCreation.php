@@ -14,7 +14,7 @@
                     <?= $this->task->renderCategoryField($categories_list, $values, $errors) ?>
                 </div>
                 <div class="extra_field">
-                    <?= $this->task->renderTagField($project, $tags) ; ?>
+                    <?= $this->task->renderTagField($project) ; ?>
                 </div>
             </div>
             <!-- = $this->task->renderTitleField($values, $errors) -->
