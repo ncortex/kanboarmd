@@ -19,7 +19,7 @@ class FordchainHelper extends Base
             $attributes = array_merge(array('tabindex="3"'), $attributes);
 
             if($required){
-                $attributes = array_merge(array('required=""'), $attributes);
+                $attributes = array_merge(array('required="required"'), $attributes);
             }
             //$users[""]=$users[0];
             //unset($users[0]);
