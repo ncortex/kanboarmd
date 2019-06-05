@@ -17,8 +17,8 @@
 
         <div class="task-form-secondary-column">
             <?= $this->helper->fordchainHelper->renderFordAssigneeField($users_list, $values, $errors, [], "gestor_id", "Project Manager",true) ?>
-            <!-- ?= $this->helper->fordchainHelper->renderFordAssigneeField($users_list, $values, $errors, [], "translator_id", "Traductor") ? -->
-            <!-- ?= $this->helper->fordchainHelper->renderFordAssigneeField($users_list, $values, $errors, [], "reviewer_id", "Revisor") ? -->
+            <?= $this->helper->fordchainHelper->renderFordAssigneeField($users_list, $values, $errors, [], "translator_id", "Traductor") ?>
+            <?= $this->helper->fordchainHelper->renderFordAssigneeField($users_list, $values, $errors, [], "reviewer_id", "Revisor") ?>
             <div style="display: none"> <?= $this->helper->fordchainHelper->renderFordAssigneeField($users_list, $values, $errors, array(), "owner_id") ?> </div>
 
             <?= $this->hook->render('template:task:form:second-column', array('values' => $values, 'errors' => $errors, 'users_list' => $users_list)) ?>
@@ -35,8 +35,8 @@
         </div>
 
         <div class="task-form-bottom">
-
-            <?= $this->modal->submitButtons() ?>
+            <button type="submit" class="btn btn-blue">Guardar</button>
+            <!-- <?= $this->modal->submitButtons() ?> -->
         </div>
     </div>
 </form>
