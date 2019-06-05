@@ -128,10 +128,10 @@
                             <span><?= $this->task->taskMetadataModel->get($task['id'],"Tool") ?></span>
                         </li>
                     <?php endif ?>
-                    <?php if ($this->task->taskMetadataModel->get($task['id'],"link")): ?>
+                    <?php if ($this->task->taskMetadataModel->get($task['id'],"Link")): ?>
                         <li>
-                            <strong><?= t('link:') ?></strong>
-                            <span><a target="_blank" href="<?= $this->task->taskMetadataModel->get($task['id'],"Tool") ?>">link</a></span>
+                            <strong><?= t('Link:') ?></strong>
+                            <span><a target="_blank" href="<?= $this->task->taskMetadataModel->get($task['id'],"Link") ?>">Link</a></span>
                         </li>
                     <?php endif ?>
                     <?= $this->hook->render('template:task:details:fourth-column', array('task' => $task)) ?>
