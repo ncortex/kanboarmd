@@ -89,7 +89,7 @@
                     <?php if ($task['date_due']): ?>
                         <li>
                             <strong><?= t('Due date:') ?></strong>
-                            <div class="task-date
+                            <span class="task-date
                                 <?php if (time() > $task['date_due']): ?>
                                      task-date-overdue
                                 <?php elseif (date('G',$task['date_due']) >= 8 && date('G',$task['date_due']) <=17): ?>
@@ -97,7 +97,7 @@
                                 <?php endif ?>
                             ">
                                 <?= $this->dt->datetime($task['date_due']) ?>
-                            </div>
+                            </span>
                         </li>
                     <?php endif ?>
                     <li>
