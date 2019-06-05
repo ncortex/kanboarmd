@@ -68,7 +68,7 @@
                             <strong><?= t('Fuzzy:') ?></strong> <span><?= $this->task->taskMetadataModel->get($task['id'],"Fuzzy") ?></span>
                         </li>
                         <li>
-                            <strong><?= t('100%:') ?></strong> <span><?= $this->task->taskMetadataModel->get($task['id'],"100%") ?></span>
+                            <strong>100%:</strong> <span><?= $this->task->taskMetadataModel->get($task['id'],"100%") ?></span>
                         </li>
                     <?php endif ?>
                     <?php if (! empty($this->task->taskMetadataModel->get($task['id'],"Weighed"))): ?>
