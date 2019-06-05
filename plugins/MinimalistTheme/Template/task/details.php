@@ -21,7 +21,7 @@
                     </li>
                     <li>
                         <strong><?= t('Column:') ?></strong>
-                        <span><?= $this->text->e($task['column_title']) ?></span><? var_dump($task); ?>
+                        <span><?= $this->text->e($task['column_title']) ?></span>
                     </li>
                     <?php if (! empty($task['category_name'])): ?>
                         <li>
