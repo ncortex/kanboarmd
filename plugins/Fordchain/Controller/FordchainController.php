@@ -33,7 +33,7 @@ class FordchainController extends BaseController
             ->buildEvent();
 
         $event = $this->dispatcher->dispatch('task.chainstepfinished', $event);
-        $this->response-> html("Ok",203);
+        return $this->response->redirect($this->helper->url->to('BoardViewController', 'show', ['project_id' => 1]));
     }
 
     public function nextChainStepConfirm()
