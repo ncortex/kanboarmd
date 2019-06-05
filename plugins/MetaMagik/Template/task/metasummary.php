@@ -9,7 +9,7 @@ if (!$set):
 <?php else: ?>
 <section class="accordion-section <?= empty($metadata) ? 'accordion-collapsed' : '' ?>">
 <div class="accordion-title">
-        <h3><a href="#" class="fa accordion-toggle"></a> <?= t('MetaMagik') ?></h3>
+        <h3><a href="#" class="fa accordion-toggle"></a></h3>
     </div>
 <div class="accordion-content">
         <?= $this->render('metaMagik:task/metatable', array(

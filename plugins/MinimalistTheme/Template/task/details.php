@@ -20,8 +20,15 @@
                         </span>
                     </li>
                     <li>
-                        <strong><?= t('Content:') ?></strong> <span><?= $task['category_name'] ?></span>
+                        <strong><?= t('Column:') ?></strong>
+                        <span><?= $this->text->e($task['column_title']) ?></span><? var_dump($task); ?>
                     </li>
+                    <?php if (! empty($task['category_name'])): ?>
+                        <li>
+                            <strong><?= t('Category:') ?></strong>
+                            <span><?= $this->text->e($task['category_name']) ?></span>
+                        </li>
+                    <?php endif ?>
                     <?php if (! empty($task['reference'])): ?>
                         <li>
                             <strong><?= t('Reference:') ?></strong> <span><?= $this->task->renderReference($task) ?></span>
@@ -53,10 +60,6 @@
                             <span><?= $this->text->e($task['category_name']) ?></span>
                         </li>
                     <?php endif ?>
-                    <li>
-                        <strong><?= t('Column:') ?></strong>
-                        <span><?= $this->text->e($task['column_title']) ?></span>
-                    </li>
 
                     <?= $this->hook->render('template:task:details:second-column', array('task' => $task)) ?>
                 </ul>

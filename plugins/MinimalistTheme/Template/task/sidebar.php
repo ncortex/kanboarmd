@@ -29,16 +29,9 @@
         <?php endif ?>
         <?php if ($this->projectRole->canRemoveTask($task)): ?>
             <li>
-                <?= $this->modal->confirm('trash-o', t('Remove'), 'TaskSuppressionController', 'confirm', array('task_id' => $task['id'], 'project_id' => $task['project_id'], 'redirect' => 'board')) ?>
+                <?= $this->modal->confirm('trash-o', t('Remove this task'), 'TaskSuppressionController', 'confirm', array('task_id' => $task['id'], 'project_id' => $task['project_id'], 'redirect' => 'board')) ?>
             </li>
         <?php endif ?>
-
-        <li <?= $this->app->checkMenuSelection('ActivityController', 'task') ?>>
-            <?= $this->url->icon('dashboard', t('Activity stream'), 'ActivityController', 'task', array('task_id' => $task['id'], 'project_id' => $task['project_id'])) ?>
-        </li>
-        <li <?= $this->app->checkMenuSelection('TaskViewController', 'transitions') ?>>
-            <?= $this->url->icon('arrows-h', t('Transitions'), 'TaskViewController', 'transitions', array('task_id' => $task['id'], 'project_id' => $task['project_id'])) ?>
-        </li>
         <li <?= $this->app->checkMenuSelection('TaskViewController', 'analytics') ?>>
             <?= $this->url->icon('bar-chart', t('Analytics'), 'TaskViewController', 'analytics', array('task_id' => $task['id'], 'project_id' => $task['project_id'])) ?>
         </li>
