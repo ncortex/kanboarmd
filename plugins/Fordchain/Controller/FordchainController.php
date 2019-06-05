@@ -36,4 +36,14 @@ class FordchainController extends BaseController
         $this->response-> html("Ok",203);
     }
 
+    public function nextChainStepConfirm()
+    {
+        $task = $this->getTask();
+        $user = $this->getUser();
+        $key = $this->request->getStringParam('key');
+        $this->response->html($this->template->render('metaMagik:config/remove', [
+            'key'     => $key,
+        ]));
+    }
+
 }
