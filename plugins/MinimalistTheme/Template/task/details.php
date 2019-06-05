@@ -55,7 +55,7 @@
             <div class="task-summary-column">
                 <ul class="no-bullet">
                     <li>
-                        <strong><?= t('Locale:') ?></strong> <span><? $this->task->taskMetadataModel->get($task['id'],"Locale") ; ?></span>
+                        <strong><?= t('Locale:') ?></strong> <span><?= $this->task->taskMetadataModel->get($task['id'],"Locale") ; ?></span>
                     </li>
                     <?= $this->hook->render('template:task:details:second-column', array('task' => $task)) ?>
                 </ul>
