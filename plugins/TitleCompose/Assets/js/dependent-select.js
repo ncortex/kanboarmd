@@ -36,8 +36,9 @@ function clientChange(json_productos){
     });
     if (productSel.options.length===1) {
         productSel.selectedIndex=1;
-        productSel.onchange();
+
     }
+    productSel.onchange();
 }
 
 function productChange(json_subproductos){
