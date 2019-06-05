@@ -35,7 +35,7 @@ function clientChange(json_productos){
        productSel.options.add(new Option(valor['title'], valor['id']));
     });
     if (productSel.options.length===1) {
-        productSel.selectedIndex=1;
+        productSel.selectedIndex=0;
 
     }
     productSel.onchange();
@@ -49,10 +49,10 @@ function productChange(json_subproductos){
     JSON.parse(json_subproductos).forEach(function(valor, indice, array) {
         subproductSel.options.add(new Option(valor['title'], valor['id']));
     });
-    if (subproductSel.options.length===2) {
-        subproductSel.selectedIndex=1;
-        subproductSel.onchange();
+    if (subproductSel.options.length===1) {
+        subproductSel.selectedIndex=0;
     }
+    subproductSel.onchange();
 }
 
 function callAjax(url, callback){
