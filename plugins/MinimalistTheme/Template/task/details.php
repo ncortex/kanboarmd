@@ -57,6 +57,25 @@
                     <li>
                         <strong><?= t('Locale:') ?></strong> <span><?= $this->task->taskMetadataModel->get($task['id'],"Locale") ; ?></span>
                     </li>
+                    <?php if (! empty($this->task->taskMetadataModel->get($task['id'],"MT"))): ?>
+                        <li>
+                            <strong><?= t('MT:') ?></strong> <span><?= $this->task->taskMetadataModel->get($task['id'],"MT") ?></span>
+                        </li>
+                        <li>
+                            <strong><?= t('New:') ?></strong> <span><?= $this->task->taskMetadataModel->get($task['id'],"New") ?></span>
+                        </li>
+                        <li>
+                            <strong><?= t('Fuzzy:') ?></strong> <span><?= $this->task->taskMetadataModel->get($task['id'],"Fuzzy") ?></span>
+                        </li>
+                        <li>
+                            <strong><?= t('100%:') ?></strong> <span><?= $this->task->taskMetadataModel->get($task['id'],"100%") ?></span>
+                        </li>
+                    <?php endif ?>
+                    <?php if (! empty($this->task->taskMetadataModel->get($task['id'],"Weighed"))): ?>
+                        <li>
+                            <strong><?= t('Weighed:') ?></strong> <span><?= $this->task->taskMetadataModel->get($task['id'],"Weighed") ?></span>
+                        </li>
+                    <?php endif ?>
                     <?= $this->hook->render('template:task:details:second-column', array('task' => $task)) ?>
                 </ul>
             </div>
@@ -89,7 +108,32 @@
                             <span><?= $this->dt->datetime($task['date_moved']) ?></span>
                         </li>
                     <?php endif ?>
-
+                    <li>
+                    </li>
+                    <?php if ($this->task->taskMetadataModel->get($task['id'],"PM(Client)")): ?>
+                        <li>
+                            <strong><?= t('PM(Client):') ?></strong>
+                            <span><?= $this->task->taskMetadataModel->get($task['id'],"PM(Client)") ?></span>
+                        </li>
+                    <?php endif ?>
+                    <?php if ($this->task->taskMetadataModel->get($task['id'],"Amount(PO)")): ?>
+                        <li>
+                            <strong><?= t('Amount(PO):') ?></strong>
+                            <span><?= $this->task->taskMetadataModel->get($task['id'],"Amount(PO)") ?></span>
+                        </li>
+                    <?php endif ?>
+                    <?php if ($this->task->taskMetadataModel->get($task['id'],"Tool")): ?>
+                        <li>
+                            <strong><?= t('Tool:') ?></strong>
+                            <span><?= $this->task->taskMetadataModel->get($task['id'],"Tool") ?></span>
+                        </li>
+                    <?php endif ?>
+                    <?php if ($this->task->taskMetadataModel->get($task['id'],"link")): ?>
+                        <li>
+                            <strong><?= t('link:') ?></strong>
+                            <span><a target="_blank" href="<?= $this->task->taskMetadataModel->get($task['id'],"Tool") ?>">link</a></span>
+                        </li>
+                    <?php endif ?>
                     <?= $this->hook->render('template:task:details:fourth-column', array('task' => $task)) ?>
                 </ul>
             </div>
