@@ -3,6 +3,7 @@
 namespace Kanboard\Plugin\Fordchain\Action;
 
 use Kanboard\Action\Base;
+use Kanboard\EventBuilder\TaskEventBuilder;
 use Kanboard\Model\TaskModel;
 
 class InitFordchain extends Base
@@ -80,8 +81,17 @@ class InitFordchain extends Base
         );
 
         $this->taskMetadataModel->save($data['task']['id'], ["gestor_name" => $this->helper->user->getFullname($this->userModel->getById($data['task']['gestor_id']))]);
+        $res = $this->taskModificationModel->update($values, true);
 
-        return $this->taskModificationModel->update($values, true);
+        // Si ya se han establecido el rtraductor y el revisor, pasar al siguiente paso automaticamnete
+        if($data['task']['translator_id'] != 0 && $data['task']['reviewer_id'] != 0){
+            $event = TaskEventBuilder::getInstance($this->container)
+                ->withTaskId($data['task']['id'])
+                ->withValues(['user_finishing' => $data['task']['gestor_id']])
+                ->buildEvent();
+            $this->dispatcher->dispatch('task.chainstepfinished', $event);
+        }
+        return $res;
     }
 
     /**
