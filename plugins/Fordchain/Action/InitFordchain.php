@@ -78,10 +78,14 @@ class InitFordchain extends Base
             'owner_id' => $data['task']['gestor_id'],
             'fordchainStep' => 1,
         );
-
+        if($data['task']['translator_id'] != 0 && $data['task']['reviewer_id'] != 0){
+            $values['translator_id'] = $data['task']['translator_id'];
+            $values['reviewer_id'] = $data['task']['reviewer_id'];
+            $this->taskMetadataModel->save($data['task']['id'], ["translator_name" => $this->helper->user->getFullname($this->userModel->getById($data['task']['translator_id'])),
+                                                                 "reviewer_name" => $this->helper->user->getFullname($this->userModel->getById($data['task']['reviewer_id']))]);
+        }
         $this->taskMetadataModel->save($data['task']['id'], ["gestor_name" => $this->helper->user->getFullname($this->userModel->getById($data['task']['gestor_id']))]);
         $res = $this->taskModificationModel->update($values, true);
-
 
         $event = TaskEventBuilder::getInstance($this->container)
             ->withTaskId($data['task']['id'])
