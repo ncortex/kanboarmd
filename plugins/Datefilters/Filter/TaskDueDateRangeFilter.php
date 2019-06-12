@@ -3,8 +3,8 @@
 namespace Kanboard\Plugin\Datefilters\Filter;
 
 use Kanboard\Core\Filter\FilterInterface;
+use Kanboard\Filter\BaseFilter;
 use Kanboard\Model\TaskModel;
-use Kanboard\Filter\BaseDateRangeFilter;
 
 /**
  * Filter tasks by modification date
@@ -12,7 +12,7 @@ use Kanboard\Filter\BaseDateRangeFilter;
  * @package filter
  * @author  Kamil Ściana
  */
-class TaskDueDateRangeFilter extends BaseDateRangeFilter implements FilterInterface
+class TaskDueDateRangeFilter extends BaseFilter implements FilterInterface
 {
     /**
      * Get search attribute
@@ -33,6 +33,15 @@ class TaskDueDateRangeFilter extends BaseDateRangeFilter implements FilterInterf
      */
     public function apply()
     {
+        $this->query->beginOr();
+        $this->query->isNull(TaskModel::TABLE.'.date_started');
+        $this->query->eq(TaskModel::TABLE.'.date_started', 0);
+        $this->query->closeOr();
+
+        $this->query->gte(TaskModel::TABLE.'.date_due', is_numeric($this->value[0]) ? $this->value[0] : strtotime($this->value[0]));
+        $this->query->lte(TaskModel::TABLE.'.date_due', is_numeric($this->value[1]) ? $this->value[1] : strtotime($this->value[1]));
+        return $this;
+
         $this->applyDateFilter(TaskModel::TABLE.'.date_due');
         return $this;
     }
