@@ -53,9 +53,9 @@
             <?php endif ?>
 
             <?php if ($this->text->contains($notification['event_name'], 'task.overdue') && count($notification['event_data']['tasks']) > 1): ?>
-                <?= $notification['title'] ?>
+                <?= $notification['event_data']['task']['title'] ?>
             <?php else: ?>
-                <?= $this->url->link($notification['title'], 'WebNotificationController', 'redirect', array('notification_id' => $notification['id'], 'user_id' => $user['id'])) ?>
+                <?= $this->url->link($notification['event_data']['task']['title'], 'WebNotificationController', 'redirect', array('notification_id' => $notification['id'], 'user_id' => $user['id'])) ?>
             <?php endif ?>
         </span>
         <div class="table-list-details">
