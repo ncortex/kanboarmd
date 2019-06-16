@@ -2,6 +2,10 @@
     color: #b94a48!important;
 }
 
+select {
+    max-width: 100%!important;
+}
+
 .task-date-today{
     color: #36c!important;
 }
