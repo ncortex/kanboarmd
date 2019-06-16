@@ -138,18 +138,18 @@ class TaskEventBuilder extends BaseEventBuilder
                 $assignee = $eventData['task']['assignee_name'] ?: $eventData['task']['assignee_username'];
 
                 if (! empty($assignee)) {
-                    return e('%s changed the assignee of the task #%d to %s', $author, $eventData['task']['id'], $assignee);
+                    return e('%s changed the assignee of the task %s to %s', $author, $eventData['task']['title'], $assignee);
                 }
 
-                return e('%s removed the assignee of the task %s', $author, e('#%d', $eventData['task']['id']));
+                return e('%s removed the assignee of the task %s', $author, e('#%d', $eventData['task']['title']));
             case TaskModel::EVENT_UPDATE:
-                return e('%s updated the task #%d', $author, $eventData['task']['id']);
+                return e('%s updated the task %s', $author, $eventData['task']['title']);
             case TaskModel::EVENT_CREATE:
-                return e('%s created the task #%d', $author, $eventData['task']['id']);
+                return e('%s created the task %s', $author, $eventData['task']['title']);
             case TaskModel::EVENT_CLOSE:
-                return e('%s closed the task #%d', $author, $eventData['task']['id']);
+                return e('%s closed the task %s', $author, $eventData['task']['title']);
             case TaskModel::EVENT_OPEN:
-                return e('%s opened the task #%d', $author, $eventData['task']['id']);
+                return e('%s opened the task %s', $author, $eventData['task']['title']);
             case TaskModel::EVENT_MOVE_PROJECT:
                 return e(
                     '%s moved the task #%d "%s" to the project "%s"',
