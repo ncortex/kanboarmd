@@ -68,8 +68,5 @@
             </li>
         <?php endif ?>
 
-        <li>
-            <?= $this->url->icon('folder', t('Manage projects'), 'ProjectListController', 'show') ?>
-        </li>
     </ul>
 </div>
