@@ -18,6 +18,6 @@ Kanboard is project management software that focuses on the Kanban methodology.
 Credits
 -------
 
-- Main developer: Frédéric Guillot
+- Main developer: Frédéric Guillot.
 - [Contributors](https://github.com/kanboard/kanboard/graphs/contributors)
 - Distributed under [MIT License](https://github.com/kanboard/kanboard/blob/master/LICENSE)
