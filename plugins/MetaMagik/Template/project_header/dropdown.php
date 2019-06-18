@@ -67,6 +67,6 @@
                 <?= $this->url->icon('cog', t('Configure this project'), 'ProjectViewController', 'show', array('project_id' => $project['id'])) ?>
             </li>
         <?php endif ?>
-
+aaaa
     </ul>
 </div>
